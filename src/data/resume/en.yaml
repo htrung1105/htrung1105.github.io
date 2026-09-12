@@ -1,0 +1,84 @@
+lang: en
+label: English
+headline: AI Engineer · AI Researcher
+summary: >-
+  Third-year Artificial Intelligence undergraduate and AI researcher specializing in
+  multimodal retrieval, large language models, and OCR. Hands-on experience building
+  end-to-end GraphRAG, agentic, and computer-vision systems from research to FastAPI
+  deployment. Seeking an AI Research or AI Engineer internship to turn cutting-edge
+  research into reliable, production-ready products.
+pdf: /files/resume-en.pdf
+sections:
+  - heading: Education
+    kind: entries
+    entries:
+      - title: University of Science, VNU-HCM
+        subtitle: B.Sc. in Artificial Intelligence
+        date: 2023 – 2027 (expected)
+        meta: >-
+          GPA 3.19 / 4.0 · Core coursework: Machine Learning, NLP, Operating Systems,
+          Data Structures & Algorithms, OOP, Software Engineering for AI, DevOps,
+          Computer Networks, Data Mining & Analysis, Databases, AI Foundation.
+      - title: Quang Trung High School for the Gifted, Binh Phuoc
+        date: 2020 – 2023
+        meta: GPA 9.5 / 10 · Vallet Scholarship 2023 · Member of the National Informatics Olympiad team.
+  - heading: Research & Publication
+    kind: entries
+    entries:
+      - title: 'KPTER: K-Pointer for Temporal Event Retrieval'
+        date: Jul 2024 – Nov 2025
+        meta: Co-author · AI Researcher & Retrieval Engineer (Team WATLERE) — AI Challenge HCMC 2025 & SOICT 2025
+        bullets:
+          - Best Presentation Award at SOICT 2025; ranked Top 12 / 80+ at AI Challenge HCMC 2025.
+          - Designed and implemented the K-Pointer sequential re-ranking algorithm together with a Weighted Reciprocal Rank Fusion (WRRF) strategy for temporal event retrieval.
+          - Built the multimodal retrieval pipeline by integrating OCR, ASR, semantic embeddings, and open-vocabulary object detection into a zero-shot retrieval framework.
+  - heading: Projects
+    kind: entries
+    entries:
+      - title: Vietnamese Legal GraphRAG
+        subtitle: AI / Full-stack Engineer (Group Project)
+        date: Apr 2026 – Present
+        meta: github.com/ductai05/VietLegalGraphRAG
+        bullets:
+          - Indexed over 7.4 million legal articles and 350K document chunks to support scalable legal retrieval.
+          - Developed a GraphRAG pipeline that maps complex Vietnamese legal text into a knowledge graph; explains legal jargon via vietlegal-harrier embeddings and LLMs for role-adaptive QA.
+          - Implemented an OCR-based contract analysis module using PaddleOCR for extracting and assessing legal risks from document images.
+          - Deployed robust FastAPI microservices delivering real-time insights backed by transparent legal citations.
+      - title: TradingClaw
+        subtitle: AI / Backend Engineer (Group Project)
+        date: Apr 2026 – Present
+        meta: github.com/ductai05/TradingClaw
+        bullets:
+          - Built a multi-agent system using LangGraph for real-time web search and market behavioral analysis, leveraging XAI to turn black-box predictions into actionable trading insights.
+          - Deployed scalable FastAPI microservices integrated with PostgreSQL to manage high-frequency data streams, user state, and API-cost metrics.
+      - title: Sino-Nom / Chinese OCR
+        subtitle: ML Engineer (Group Project)
+        date: Nov 2025 – Dec 2025
+        meta: github.com/ductai05/NLP-ChineseOCR
+        bullets:
+          - Built a concurrent Go-based crawling pipeline to collect and preprocess the CWKB historical dataset with over 3.4K Sino-Nom document images.
+          - Fine-tuned PP-OCRv5 detection (PP-HGNetV2-B4 backbone, DB algorithm) on PaddlePaddle GPU; ran distributed training on 2× NVIDIA T4 with Cosine Annealing and an optimized DBLoss.
+          - Improved H-mean by 30.2% (0.731 → 0.952) at 0.966 precision on the NomNaOCR benchmark, resolving detection failures on heavily degraded Sino-Nom characters.
+  - heading: Skills
+    kind: skills
+    skills:
+      - group: Languages
+        items: Python, C/C++, SQL, TypeScript
+      - group: AI & ML
+        items: PyTorch, Hugging Face Transformers, PaddlePaddle, NumPy, Pandas, Scikit-learn
+      - group: LLM & RAG
+        items: LangChain, LangGraph, LightRAG, vLLM
+      - group: Backend
+        items: FastAPI, NestJS, REST API
+      - group: DevOps & MLOps
+        items: Docker, Kubernetes, GitHub Actions, Git, Linux
+      - group: Databases
+        items: PostgreSQL, Neo4j, Supabase, Elasticsearch
+      - group: Research
+        items: LLMs, Multimodal Retrieval, OCR, ASR, Object Detection
+  - heading: Awards & Certifications
+    kind: list
+    list:
+      - 2nd Prize — ICPC Southern Region 2024; contestant at the ICPC Vietnam National round 2024.
+      - Consolation Prize — Vietnamese National Informatics Olympiad (VOI) 2023.
+      - 'Certifications (DeepLearning.AI, 2026): Data Analytics Foundations · Agentic AI · Linear Algebra for Machine Learning and Data Science.'

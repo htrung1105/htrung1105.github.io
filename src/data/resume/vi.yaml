@@ -1,0 +1,84 @@
+lang: vi
+label: Tiếng Việt
+headline: Kỹ sư AI · Nghiên cứu viên AI
+summary: >-
+  Sinh viên năm ba ngành Trí tuệ Nhân tạo và nghiên cứu viên AI, chuyên sâu về truy hồi
+  đa phương thức (multimodal retrieval), mô hình ngôn ngữ lớn và OCR. Có kinh nghiệm xây
+  dựng hệ thống GraphRAG, agent và thị giác máy tính từ nghiên cứu đến triển khai FastAPI.
+  Mong muốn tìm vị trí thực tập AI Research hoặc AI Engineer để hiện thực hóa ý tưởng
+  nghiên cứu thành sản phẩm thực tế, đáng tin cậy.
+pdf: /files/resume-vi.pdf
+sections:
+  - heading: Học vấn
+    kind: entries
+    entries:
+      - title: Trường Đại học Khoa học Tự nhiên, ĐHQG-HCM
+        subtitle: Cử nhân Trí tuệ Nhân tạo
+        date: 2023 – 2027 (dự kiến)
+        meta: >-
+          GPA 3.19 / 4.0 · Môn học cốt lõi: Máy học, NLP, Hệ điều hành, CTDL & giải thuật,
+          OOP, CNPM cho AI, DevOps, Mạng máy tính, Khai thác & phân tích dữ liệu,
+          Cơ sở dữ liệu, Cơ sở AI.
+      - title: Trường THPT Chuyên Quang Trung, Bình Phước
+        date: 2020 – 2023
+        meta: Điểm TB 9.5 / 10 · Học bổng Vallet 2023 · Thành viên đội tuyển HSG Quốc gia môn Tin học.
+  - heading: Nghiên cứu & Công bố
+    kind: entries
+    entries:
+      - title: 'KPTER: K-Pointer for Temporal Event Retrieval'
+        date: 07/2024 – 11/2025
+        meta: Đồng tác giả · Nghiên cứu viên AI & Kỹ sư hệ thống (Team WATLERE) — AI Challenge HCMC 2025 & SOICT 2025
+        bullets:
+          - Giải Best Presentation tại SOICT 2025; xếp Top 12 / 80+ tại AI Challenge HCMC 2025.
+          - Đề xuất và hiện thực thuật toán tái xếp hạng tuần tự "K-Pointer" cùng cơ chế WRRF nhằm căn chỉnh chính xác đoạn video theo thời gian.
+          - Tích hợp semantic embeddings, OCR, ASR và nhận diện đối tượng open-vocabulary vào một khung truy hồi zero-shot hoàn chỉnh.
+  - heading: Dự án
+    kind: entries
+    entries:
+      - title: Vietnamese Legal GraphRAG
+        subtitle: Kỹ sư AI / Full-stack
+        date: 04/2026 – nay
+        meta: github.com/ductai05/VietLegalGraphRAG
+        bullets:
+          - Đánh chỉ mục hơn 7.4 triệu văn bản pháp luật và 350K đoạn tài liệu để hỗ trợ truy hồi quy mô lớn, độ trễ thấp.
+          - Xây dựng pipeline GraphRAG để ánh xạ văn bản pháp luật Việt Nam thành đồ thị tri thức; giải thích thuật ngữ pháp lý qua embeddings vietlegal-harrier và LLM cho hỏi-đáp thích ứng theo vai trò.
+          - Hiện thực module phân tích hợp đồng dùng PaddleOCR để trích xuất và đánh giá rủi ro pháp lý từ ảnh tài liệu.
+          - Triển khai microservices FastAPI cung cấp thông tin thời gian thực kèm trích dẫn pháp lý minh bạch.
+      - title: TradingClaw
+        subtitle: Kỹ sư AI / Backend
+        date: 04/2026 – nay
+        meta: github.com/ductai05/TradingClaw
+        bullets:
+          - Xây dựng hệ sinh thái điều khiển bởi LLM với các agent LangGraph chuyên biệt cho tìm kiếm web thời gian thực và phân tích hành vi cá nhân hóa; dùng XAI để diễn giải dự đoán hộp đen.
+          - Triển khai microservices FastAPI mở rộng tích hợp PostgreSQL để quản lý luồng dữ liệu tần suất cao, trạng thái người dùng và chi phí API.
+      - title: Sino-Nom / Chinese OCR
+        subtitle: ML Engineer
+        date: 11/2025 – 12/2025
+        meta: github.com/ductai05/NLP-ChineseOCR
+        bullets:
+          - Xây dựng pipeline thu thập dữ liệu hiệu năng cao bằng Goroutines (Go) để crawl và tiền xử lý bộ dữ liệu lịch sử CWKB — hơn 3.4K ảnh tài liệu Hán–Nôm, kết hợp cùng NomNaOCR.
+          - Fine-tune mô hình phát hiện chữ (text detection) PP-OCRv5 (backbone PP-HGNetV2-B4, thuật toán DB) trên PaddlePaddle GPU; huấn luyện phân tán trên 2× NVIDIA T4 với Cosine Annealing và DBLoss tối ưu.
+          - Tăng H-mean 30.2% (0.731 → 0.952) với precision 0.966 trên tập kiểm thử NomNaOCR, khắc phục lỗi phát hiện với ký tự Hán-Nôm suy biến nặng.
+  - heading: Kỹ năng
+    kind: skills
+    skills:
+      - group: Ngôn ngữ
+        items: Python, C/C++, SQL, TypeScript
+      - group: AI & ML
+        items: PyTorch, Hugging Face Transformers, PaddlePaddle, NumPy, Pandas, Scikit-learn
+      - group: LLM & RAG
+        items: LangChain, LangGraph, LightRAG, vLLM
+      - group: Backend
+        items: FastAPI, NestJS, REST API
+      - group: DevOps & MLOps
+        items: Docker, Kubernetes, GitHub Actions, Git, Linux
+      - group: Cơ sở dữ liệu
+        items: PostgreSQL, Neo4j, Supabase, Elasticsearch
+      - group: Lĩnh vực NC
+        items: LLMs, Multimodal Retrieval, OCR, ASR, Object Detection
+  - heading: Giải thưởng & Chứng chỉ
+    kind: list
+    list:
+      - Giải Nhì — ICPC khu vực miền Nam 2024; thí sinh vòng Quốc gia ICPC 2024.
+      - Giải Khuyến khích — HSG Quốc gia môn Tin học (VOI) 2023.
+      - 'Chứng chỉ (DeepLearning.AI, 2026): Data Analytics Foundations · Agentic AI · Linear Algebra for Machine Learning and Data Science.'
