@@ -1,0 +1,50 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props { project: CollectionEntry<'projects'>; }
+const { project } = Astro.props;
+const { title, role, period, summary, tags, metrics } = project.data;
+---
+<article class="card project" data-tags={tags.join(',')}>
+  <a href={`/work/${project.id}`} class="title">{title}</a>
+  <p class="meta">{role} · {period}</p>
+  <p class="summary">{summary}</p>
+
+  {metrics.length > 0 && (
+    <div class="metrics">
+      {metrics.map((m) => (
+        <div><b>{m.value}</b><span>{m.label}</span></div>
+      ))}
+    </div>
+  )}
+
+  <div class="tags">
+    {tags.map((tag) => <span class="tag">{tag}</span>)}
+  </div>
+</article>
+
+<style>
+  .project { padding: var(--space-5); }
+  .title {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    color: var(--text);
+  }
+  .title:hover { color: var(--accent); }
+  .meta { margin: 2px 0 var(--space-3); font-size: 13px; color: var(--text-muted); }
+  .summary { margin: 0; color: var(--text-muted); }
+  .metrics { display: flex; flex-wrap: wrap; gap: var(--space-5); margin: var(--space-4) 0; }
+  .metrics b { display: block; font-size: 18px; font-weight: 800; color: var(--accent); }
+  .metrics span { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
+  .tags { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-3); }
+  .tag {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: 999px;
+    padding: 3px 9px;
+  }
+</style>

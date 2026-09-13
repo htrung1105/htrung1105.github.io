@@ -1,0 +1,46 @@
+---
+interface Props { tags: string[]; }
+const { tags } = Astro.props;
+---
+<div class="filter" role="group" aria-label="Filter by tag">
+  <button type="button" class="chip on" data-tag="all">All</button>
+  {tags.map((tag) => <button type="button" class="chip" data-tag={tag}>{tag}</button>)}
+</div>
+
+<style>
+  .filter { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-5); }
+  .chip {
+    padding: 5px 12px;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .chip:hover { color: var(--text); }
+  .chip.on {
+    color: #fff;
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  :global(:root[data-theme='dark']) .chip.on { color: #0d1117; }
+</style>
+
+<script>
+  const chips = document.querySelectorAll<HTMLButtonElement>('.chip');
+  const items = document.querySelectorAll<HTMLElement>('[data-tags]');
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const tag = chip.dataset.tag;
+      chips.forEach((c) => c.classList.toggle('on', c === chip));
+      items.forEach((item) => {
+        const list = (item.dataset.tags ?? '').split(',');
+        item.hidden = tag !== 'all' && !list.includes(tag!);
+      });
+    });
+  });
+</script>

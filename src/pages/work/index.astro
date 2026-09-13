@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import TagFilter from '../../components/TagFilter.astro';
+
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+const tags = [...new Set(projects.flatMap((p) => p.data.tags))].sort();
+---
+<PageLayout title="Work — Nguyen Le Hoang Trung" description="Research and engineering projects in multimodal retrieval, LLMs, and OCR.">
+  <h1>Work</h1>
+  <p class="lede">Research and engineering projects, most recent first.</p>
+
+  <TagFilter tags={tags} />
+
+  <div class="grid">
+    {projects.map((project) => <ProjectCard project={project} />)}
+  </div>
+</PageLayout>
+
+<style>
+  h1 { margin: 0; font-size: 30px; font-weight: 800; letter-spacing: -0.03em; }
+  .lede { margin: var(--space-2) 0 var(--space-5); color: var(--text-muted); }
+  .grid { display: grid; gap: var(--space-4); }
+</style>
