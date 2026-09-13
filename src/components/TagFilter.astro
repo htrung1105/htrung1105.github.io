@@ -3,8 +3,8 @@ interface Props { tags: string[]; }
 const { tags } = Astro.props;
 ---
 <div class="filter" role="group" aria-label="Filter by tag">
-  <button type="button" class="chip on" data-tag="all">All</button>
-  {tags.map((tag) => <button type="button" class="chip" data-tag={tag}>{tag}</button>)}
+  <button type="button" class="chip on" data-tag="all" aria-pressed="true">All</button>
+  {tags.map((tag) => <button type="button" class="chip" data-tag={tag} aria-pressed="false">{tag}</button>)}
 </div>
 
 <style>
@@ -36,7 +36,10 @@ const { tags } = Astro.props;
   chips.forEach((chip) => {
     chip.addEventListener('click', () => {
       const tag = chip.dataset.tag;
-      chips.forEach((c) => c.classList.toggle('on', c === chip));
+      chips.forEach((c) => {
+        c.classList.toggle('on', c === chip);
+        c.setAttribute('aria-pressed', String(c === chip));
+      });
       items.forEach((item) => {
         const list = (item.dataset.tags ?? '').split(',');
         item.hidden = tag !== 'all' && !list.includes(tag!);
