@@ -43,6 +43,9 @@
 }
 .prose img { border-radius: var(--radius-sm); }
 .prose table {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
   width: 100%;
   border-collapse: collapse;
   font-size: 15px;
