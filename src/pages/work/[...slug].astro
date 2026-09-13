@@ -1,0 +1,70 @@
+---
+import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import PageLayout from '../../layouts/PageLayout.astro';
+import '../../styles/prose.css';
+
+interface Props { project: CollectionEntry<'projects'>; }
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+};
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const { title, role, period, summary, repo, demo, tags, metrics } = project.data;
+---
+<PageLayout title={`${title} — Nguyen Le Hoang Trung`} description={summary} sidebar={false}>
+  <a class="back" href="/work">← Work</a>
+
+  <header class="head">
+    <h1>{title}</h1>
+    <p class="meta">{role} · {period}</p>
+    <div class="links">
+      {repo && <a href={repo}>Repository</a>}
+      {demo && <a href={demo}>Live demo</a>}
+    </div>
+    <div class="tags">{tags.map((tag) => <span class="tag">{tag}</span>)}</div>
+  </header>
+
+  {metrics.length > 0 && (
+    <div class="metrics card">
+      {metrics.map((m) => (
+        <div><b>{m.value}</b><span>{m.label}</span></div>
+      ))}
+    </div>
+  )}
+
+  <div class="prose"><Content /></div>
+</PageLayout>
+
+<style>
+  .back { font-size: 13px; font-weight: 600; text-decoration: none; }
+  .head { margin: var(--space-4) 0 var(--space-6); }
+  h1 { margin: 0; font-size: clamp(28px, 5vw, 38px); font-weight: 800; letter-spacing: -0.03em; }
+  .meta { margin: var(--space-2) 0 0; color: var(--text-muted); }
+  .links { display: flex; gap: var(--space-4); margin-top: var(--space-3); font-size: 14px; font-weight: 600; }
+  .tags { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-3); }
+  .tag {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: 999px;
+    padding: 3px 9px;
+  }
+  .metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-6);
+    padding: var(--space-4) var(--space-5);
+    margin-bottom: var(--space-6);
+  }
+  .metrics b { display: block; font-size: 22px; font-weight: 800; color: var(--accent); }
+  .metrics span { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
+</style>
