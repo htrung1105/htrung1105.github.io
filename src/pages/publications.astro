@@ -1,0 +1,65 @@
+---
+import { getCollection, render } from 'astro:content';
+import PageLayout from '../layouts/PageLayout.astro';
+import '../styles/prose.css';
+
+const publications = (await getCollection('publications')).sort((a, b) => b.data.year - a.data.year);
+const rendered = await Promise.all(
+  publications.map(async (entry) => ({ entry, Content: (await render(entry)).Content })),
+);
+---
+<PageLayout title="Publications — Nguyen Le Hoang Trung" description="Papers and research output in multimodal retrieval and OCR.">
+  <h1>Publications</h1>
+  <p class="lede">Peer-reviewed and competition research output.</p>
+
+  {rendered.map(({ entry, Content }) => (
+    <article class="card pub">
+      <div class="row">
+        <h2>{entry.data.title}</h2>
+        <span class="year">{entry.data.year}</span>
+      </div>
+      <p class="venue">
+        {entry.data.venue}
+        {entry.data.award && <span class="award">{entry.data.award}</span>}
+      </p>
+      <p class="authors">{entry.data.authors.join(', ')}</p>
+      <p class="abstract">{entry.data.abstract}</p>
+
+      <div class="links">
+        {entry.data.pdf && <a href={entry.data.pdf}>PDF</a>}
+        {entry.data.code && <a href={entry.data.code}>Code</a>}
+        {entry.data.slides && <a href={entry.data.slides}>Slides</a>}
+      </div>
+
+      <details>
+        <summary>More detail</summary>
+        <div class="prose"><Content /></div>
+      </details>
+    </article>
+  ))}
+</PageLayout>
+
+<style>
+  h1 { margin: 0; font-size: 30px; font-weight: 800; letter-spacing: -0.03em; }
+  .lede { margin: var(--space-2) 0 var(--space-5); color: var(--text-muted); }
+  .pub { padding: var(--space-5); margin-bottom: var(--space-4); }
+  .row { display: flex; gap: var(--space-4); justify-content: space-between; align-items: baseline; }
+  h2 { margin: 0; font-size: 18px; font-weight: 700; letter-spacing: -0.02em; }
+  .year { flex: none; font-size: 13px; color: var(--text-muted); }
+  .venue { margin: var(--space-2) 0 0; font-size: 14px; font-weight: 600; }
+  .award {
+    margin-left: var(--space-2);
+    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: 999px;
+  }
+  .authors { margin: 2px 0 var(--space-3); font-size: 13px; color: var(--text-muted); }
+  .abstract { margin: 0; color: var(--text-muted); }
+  .links { display: flex; gap: var(--space-4); margin-top: var(--space-3); font-size: 14px; font-weight: 600; }
+  details { margin-top: var(--space-4); }
+  summary { cursor: pointer; font-size: 14px; font-weight: 600; color: var(--accent); }
+  details .prose { margin-top: var(--space-3); font-size: 15px; }
+</style>
