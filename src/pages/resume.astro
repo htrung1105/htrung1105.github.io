@@ -14,7 +14,7 @@ const ordered = ['en', 'vi']
     <div class="controls">
       <div class="langs" role="group" aria-label="Résumé language">
         {ordered.map((entry, i) => (
-          <button type="button" class:list={['lang', { on: i === 0 }]} data-lang={entry.data.lang}>
+          <button type="button" class:list={['lang', { on: i === 0 }]} data-lang={entry.data.lang} aria-pressed={i === 0}>
             {entry.data.label}
           </button>
         ))}
@@ -160,7 +160,10 @@ const ordered = ['en', 'vi']
   buttons.forEach((button) => {
     button.addEventListener('click', () => {
       const lang = button.dataset.lang;
-      buttons.forEach((b) => b.classList.toggle('on', b === button));
+      buttons.forEach((b) => {
+        b.classList.toggle('on', b === button);
+        b.setAttribute('aria-pressed', String(b === button));
+      });
       document.querySelectorAll<HTMLElement>('[data-sheet]').forEach((sheet) => {
         sheet.classList.toggle('hidden', sheet.dataset.sheet !== lang);
       });
