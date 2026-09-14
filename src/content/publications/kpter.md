@@ -7,7 +7,6 @@ authors:
   - Team WATLERE
 award: Best Presentation Award
 abstract: A sequential re-ranking algorithm for temporal event retrieval, paired with Weighted Reciprocal Rank Fusion, evaluated within a zero-shot multimodal retrieval framework combining OCR, ASR, semantic embeddings, and open-vocabulary object detection.
-code: https://github.com/htrung1105
 ---
 
 KPTER addresses temporal alignment in video event retrieval: given a natural-language
