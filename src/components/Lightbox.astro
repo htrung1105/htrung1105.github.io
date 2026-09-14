@@ -1,0 +1,57 @@
+---
+---
+<dialog id="lightbox">
+  <button class="close" type="button" aria-label="Close">×</button>
+  <img id="lightbox-img" src="" alt="" />
+  <p id="lightbox-caption"></p>
+</dialog>
+
+<style>
+  dialog {
+    max-width: min(94vw, 1100px);
+    max-height: 92vh;
+    padding: var(--space-4);
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+  }
+  dialog::backdrop { background: rgba(0, 0, 0, 0.72); }
+  img { display: block; max-height: 76vh; width: auto; border-radius: var(--radius-sm); }
+  p { margin: var(--space-3) 0 0; font-size: 14px; color: var(--text-muted); }
+  .close {
+    position: absolute;
+    top: var(--space-2);
+    right: var(--space-2);
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+    line-height: 1;
+    color: var(--text-muted);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  const dialog = document.getElementById('lightbox') as HTMLDialogElement | null;
+  const image = document.getElementById('lightbox-img') as HTMLImageElement | null;
+  const caption = document.getElementById('lightbox-caption');
+
+  document.querySelectorAll<HTMLButtonElement>('[data-full]').forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      if (!dialog || !image) return;
+      image.src = trigger.dataset.full ?? '';
+      image.alt = trigger.dataset.alt ?? '';
+      if (caption) caption.textContent = trigger.dataset.caption ?? '';
+      dialog.showModal();
+    });
+  });
+
+  dialog?.querySelector('.close')?.addEventListener('click', () => dialog.close());
+  dialog?.addEventListener('click', (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+</script>

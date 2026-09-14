@@ -1,0 +1,75 @@
+---
+import { getCollection } from 'astro:content';
+import { Image, getImage } from 'astro:assets';
+import PageLayout from '../layouts/PageLayout.astro';
+import Lightbox from '../components/Lightbox.astro';
+
+const photos = (await getCollection('gallery')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const items = await Promise.all(
+  photos.map(async (photo) => ({
+    photo,
+    full: (await getImage({ src: photo.data.image, format: 'webp', width: 1600 })).src,
+  })),
+);
+---
+<PageLayout title="Gallery — Nguyen Le Hoang Trung" description="Photographs from conferences, competitions, and team work.">
+  <h1>Gallery</h1>
+  <p class="lede">Conferences, competitions, and the people behind the work.</p>
+
+  {items.length === 0 ? (
+    <p class="empty">No photographs yet.</p>
+  ) : (
+    <div class="grid">
+      {items.map(({ photo, full }) => (
+        <button
+          type="button"
+          class="shot"
+          data-full={full}
+          data-alt={photo.data.alt}
+          data-caption={photo.data.caption}
+        >
+          <Image src={photo.data.image} alt={photo.data.alt} width={520} height={390} />
+          <span>{photo.data.caption}</span>
+        </button>
+      ))}
+    </div>
+  )}
+
+  <Lightbox />
+</PageLayout>
+
+<style>
+  h1 { margin: 0; font-size: 30px; font-weight: 800; letter-spacing: -0.03em; }
+  .lede { margin: var(--space-2) 0 var(--space-5); color: var(--text-muted); }
+  .empty { color: var(--text-muted); }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: var(--space-3);
+  }
+  .shot {
+    display: block;
+    padding: 0;
+    text-align: left;
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+  .shot img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+  }
+  .shot span {
+    display: block;
+    margin-top: var(--space-2);
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .shot:hover img { border-color: var(--accent); }
+</style>
