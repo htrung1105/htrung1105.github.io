@@ -19,7 +19,7 @@ const fmt = (d: Date) =>
 <PageLayout title={`${site.name} — ${site.role}`} description={site.blurb}>
   <section class="hero">
     <h1>
-      {site.name.split(' ').slice(-2).join(' ')}<br />
+      {site.displayName}<br />
       <em>{site.tagline}</em>
     </h1>
     <p class="blurb">{site.blurb}</p>
@@ -42,10 +42,7 @@ const fmt = (d: Date) =>
       <p class="eyebrow">Featured</p>
       <div class="tiles two">
         {featured.map((p) => (
-          <a class="card tile" href={`/work/${p.id}`}>
-            <b>{p.data.title}</b>
-            <span>{p.data.summary}</span>
-          </a>
+          <EntryTile href={`/work/${p.id}`} title={p.data.title} blurb={p.data.summary} />
         ))}
       </div>
     </section>
@@ -93,15 +90,6 @@ const fmt = (d: Date) =>
     gap: var(--space-3);
   }
   .tiles.two { grid-template-columns: repeat(2, 1fr); }
-  .tile {
-    display: block;
-    padding: var(--space-4);
-    text-decoration: none;
-    color: inherit;
-  }
-  .tile:hover { border-color: var(--accent); }
-  .tile b { display: block; font-size: 15px; font-weight: 700; }
-  .tile span { display: block; margin-top: 2px; font-size: 13px; color: var(--text-muted); }
   .posts { list-style: none; margin: 0; padding: 0; }
   .posts li {
     display: flex;

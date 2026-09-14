@@ -2,6 +2,9 @@
 import { Image } from 'astro:assets';
 import { site } from '../config/site';
 import portrait from '../assets/portrait.jpg';
+
+const githubUrl = new URL(site.github);
+const githubLabel = githubUrl.host + githubUrl.pathname;
 ---
 <aside class="card profile">
   <Image src={portrait} alt={`Portrait of ${site.name}`} width={96} height={96} class="portrait" />
@@ -15,7 +18,7 @@ import portrait from '../assets/portrait.jpg';
     </li>
     <li>
       <span class="ico" aria-hidden="true">gh</span>
-      <a href={site.github} rel="me">github.com/htrung1105</a>
+      <a href={site.github} rel="me">{githubLabel}</a>
     </li>
     <li>
       <span class="ico" aria-hidden="true">in</span>
@@ -56,7 +59,7 @@ import portrait from '../assets/portrait.jpg';
     font-weight: 600;
     color: var(--accent);
     background: var(--accent-soft);
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
   }
   .contacts {
     list-style: none;

@@ -2,10 +2,13 @@
 import PageLayout from '../layouts/PageLayout.astro';
 import { site } from '../config/site';
 
+const githubUrl = new URL(site.github);
+const githubLabel = githubUrl.host + githubUrl.pathname;
+
 const links = [
   { label: 'Email', value: site.email, href: `mailto:${site.email}` },
-  { label: 'GitHub', value: 'github.com/htrung1105', href: site.github },
-  { label: 'LinkedIn', value: 'Nguyen Trung', href: site.linkedin },
+  { label: 'GitHub', value: githubLabel, href: site.github },
+  { label: 'LinkedIn', value: site.linkedinName, href: site.linkedin },
 ];
 ---
 <PageLayout title="Contact — Nguyen Le Hoang Trung" description="Get in touch about AI research and engineering internships.">

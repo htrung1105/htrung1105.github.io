@@ -8,8 +8,10 @@
   --text-muted: #6b7280;
   --shadow: 0 1px 3px rgba(15, 17, 21, 0.06), 0 8px 24px rgba(15, 17, 21, 0.04);
 
+  --radius-xs: 4px;
   --radius-sm: 8px;
   --radius-md: 12px;
+  --radius-pill: 999px;
 
   --space-1: 4px;
   --space-2: 8px;

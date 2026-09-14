@@ -42,7 +42,7 @@ const ogImageUrl = new URL(ogImage, Astro.site);
         '@context': 'https://schema.org',
         '@type': 'Person',
         name: siteInfo.name,
-        jobTitle: 'AI Engineer, AI Researcher',
+        jobTitle: siteInfo.role,
         email: `mailto:${siteInfo.email}`,
         url: siteInfo.url,
         sameAs: [siteInfo.github, siteInfo.linkedin],

@@ -2,6 +2,7 @@ node_modules/
 dist/
 .astro/
 .superpowers/
+.claude/
 .DS_Store
 *.log
 .env
