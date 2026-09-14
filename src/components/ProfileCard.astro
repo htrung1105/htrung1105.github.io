@@ -7,7 +7,7 @@ const githubUrl = new URL(site.github);
 const githubLabel = githubUrl.host + githubUrl.pathname;
 ---
 <aside class="card profile">
-  <Image src={portrait} alt={`Portrait of ${site.name}`} width={96} height={96} class="portrait" loading="eager" fetchpriority="high" />
+  <Image src={portrait} alt={`Portrait of ${site.name}`} width={192} height={256} class="portrait" loading="eager" fetchpriority="high" />
   <h2 class="name">{site.name}</h2>
   <p class="role">{site.role}</p>
 
@@ -40,6 +40,8 @@ const githubLabel = githubUrl.host + githubUrl.pathname;
     top: var(--space-5);
   }
   .portrait {
+    width: 96px;
+    height: 96px;
     border-radius: var(--radius-md);
     object-fit: cover;
     margin-bottom: var(--space-4);

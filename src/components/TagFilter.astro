@@ -1,10 +1,10 @@
 ---
-interface Props { tags: string[]; }
+interface Props { tags: { value: string; label: string }[]; }
 const { tags } = Astro.props;
 ---
 <div class="filter" role="group" aria-label="Filter by tag">
   <button type="button" class="chip on" data-tag="all" aria-pressed="true">All</button>
-  {tags.map((tag) => <button type="button" class="chip" data-tag={tag} aria-pressed="false">{tag}</button>)}
+  {tags.map((tag) => <button type="button" class="chip" data-tag={tag.value} aria-pressed="false">{tag.label}</button>)}
 </div>
 
 <style>

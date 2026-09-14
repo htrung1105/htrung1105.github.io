@@ -11,7 +11,7 @@ const tags = [...new Set(projects.flatMap((p) => p.data.tags))].sort();
   <h1>Work</h1>
   <p class="lede">Research and engineering projects, most recent first.</p>
 
-  <TagFilter tags={tags} />
+  <TagFilter tags={tags.map((tag) => ({ value: tag, label: tag }))} />
 
   <div class="grid">
     {projects.map((project) => <ProjectCard project={project} />)}
