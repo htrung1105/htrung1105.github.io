@@ -1,0 +1,53 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props { post: CollectionEntry<'posts'>; }
+const { post } = Astro.props;
+const { title, date, category, tags, excerpt } = post.data;
+
+const labels: Record<typeof category, string> = {
+  project: 'Project',
+  paper: 'Paper',
+  career: 'Career',
+};
+
+const formatted = date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+---
+<article class="card post" data-tags={category}>
+  <div class="row">
+    <span class="cat">{labels[category]}</span>
+    <time datetime={date.toISOString()}>{formatted}</time>
+  </div>
+  <a class="title" href={`/blog/${post.id}`}>{title}</a>
+  <p class="excerpt">{excerpt}</p>
+  <div class="tags">{tags.map((tag) => <span class="tag">{tag}</span>)}</div>
+</article>
+
+<style>
+  .post { padding: var(--space-5); }
+  .row { display: flex; gap: var(--space-3); align-items: center; margin-bottom: var(--space-3); }
+  .cat {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: 999px;
+    padding: 3px 9px;
+  }
+  time { font-size: 12px; color: var(--text-muted); }
+  .title {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    color: var(--text);
+  }
+  .title:hover { color: var(--accent); }
+  .excerpt { margin: var(--space-2) 0 0; color: var(--text-muted); }
+  .tags { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-3); }
+  .tag { font-size: 11px; font-weight: 600; color: var(--text-muted); }
+</style>
