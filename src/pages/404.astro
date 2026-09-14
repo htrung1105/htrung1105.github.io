@@ -1,0 +1,14 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+---
+<PageLayout title="Page not found — Nguyen Le Hoang Trung" description="The page you're looking for doesn't exist.">
+  <h1>Page not found</h1>
+  <p class="lede">The page you're looking for doesn't exist or may have moved.</p>
+  <a href="/">Back to home</a>
+</PageLayout>
+
+<style>
+  h1 { margin: 0; font-size: 30px; font-weight: 800; letter-spacing: -0.03em; }
+  .lede { margin: var(--space-2) 0 var(--space-5); max-width: 56ch; color: var(--text-muted); }
+  a { font-weight: 600; }
+</style>

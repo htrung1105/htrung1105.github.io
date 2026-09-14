@@ -8,11 +8,12 @@ interface Props {
   title: string;
   description: string;
   sidebar?: boolean;
+  ogImage?: string;
 }
 
-const { title, description, sidebar = true } = Astro.props;
+const { title, description, sidebar = true, ogImage } = Astro.props;
 ---
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} ogImage={ogImage}>
   <Header />
   <div class="container">
     <div class={sidebar ? 'shell with-sidebar' : 'shell'}>

@@ -93,8 +93,8 @@ choice before first paint to avoid a white flash.
 Components: `ProfileCard`, `Header` (nav + theme toggle), `StatTile`, `ProjectCard`,
 `PostCard`, `TagFilter`, `Prose`, `Lightbox`.
 
-Client-side JavaScript is limited to three things: the theme toggle, tag filtering,
-and the gallery lightbox. Everything else ships as static HTML.
+Client-side JavaScript is limited to four things: the theme toggle, the résumé language
+switch, tag filtering, and the gallery lightbox. Everything else ships as static HTML.
 
 ### Accessibility
 

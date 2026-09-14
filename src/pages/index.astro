@@ -29,7 +29,7 @@ const fmt = (d: Date) =>
   </section>
 
   <section>
-    <p class="eyebrow">Go to</p>
+    <h2 class="eyebrow">Go to</h2>
     <div class="tiles">
       <EntryTile href="/work" title="Work" blurb="Research & projects" />
       <EntryTile href="/resume" title="Résumé" blurb="EN / VI · PDF" />
@@ -39,7 +39,7 @@ const fmt = (d: Date) =>
 
   {featured.length > 0 && (
     <section>
-      <p class="eyebrow">Featured</p>
+      <h2 class="eyebrow">Featured</h2>
       <div class="tiles two">
         {featured.map((p) => (
           <EntryTile href={`/work/${p.id}`} title={p.data.title} blurb={p.data.summary} />
@@ -50,7 +50,7 @@ const fmt = (d: Date) =>
 
   {latest.length > 0 && (
     <section>
-      <p class="eyebrow">Latest writing</p>
+      <h2 class="eyebrow">Latest writing</h2>
       <ul class="posts">
         {latest.map((post) => (
           <li>

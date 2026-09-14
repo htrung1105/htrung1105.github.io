@@ -7,7 +7,7 @@ summary: >-
   end-to-end GraphRAG, agentic, and computer-vision systems from research to FastAPI
   deployment. Seeking an AI Research or AI Engineer internship to turn cutting-edge
   research into reliable, production-ready products.
-pdf: /files/resume-en.pdf
+pdf: /files/resume.pdf
 sections:
   - heading: Education
     kind: entries

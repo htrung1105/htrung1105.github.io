@@ -21,7 +21,7 @@ const ordered = ['en', 'vi']
       </div>
       {ordered.map((entry, i) => (
         <a class:list={['pdf', { hidden: i !== 0 }]} data-pdf={entry.data.lang} href={entry.data.pdf} download>
-          Download PDF
+          Download PDF (EN + VI)
         </a>
       ))}
     </div>
@@ -97,11 +97,10 @@ const ordered = ['en', 'vi']
     cursor: pointer;
   }
   .lang.on {
-    color: #fff;
+    color: var(--on-accent);
     background: var(--accent);
     border-color: var(--accent);
   }
-  :global(:root[data-theme='dark']) .lang.on { color: #0d1117; }
   .pdf {
     padding: 6px 12px;
     font-size: 13px;

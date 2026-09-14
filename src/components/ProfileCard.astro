@@ -7,7 +7,7 @@ const githubUrl = new URL(site.github);
 const githubLabel = githubUrl.host + githubUrl.pathname;
 ---
 <aside class="card profile">
-  <Image src={portrait} alt={`Portrait of ${site.name}`} width={96} height={96} class="portrait" />
+  <Image src={portrait} alt={`Portrait of ${site.name}`} width={96} height={96} class="portrait" loading="eager" fetchpriority="high" />
   <h2 class="name">{site.name}</h2>
   <p class="role">{site.role}</p>
 
@@ -86,7 +86,7 @@ const githubLabel = githubUrl.host + githubUrl.pathname;
     font-weight: 700;
     color: var(--accent);
     background: var(--accent-soft);
-    border-radius: 6px;
+    border-radius: var(--radius-xs);
   }
   .cta {
     display: block;
@@ -95,12 +95,11 @@ const githubLabel = githubUrl.host + githubUrl.pathname;
     text-align: center;
     font-size: 13px;
     font-weight: 700;
-    color: #fff;
+    color: var(--on-accent);
     background: var(--accent);
     border-radius: var(--radius-sm);
     text-decoration: none;
   }
-  :global(:root[data-theme='dark']) .cta { color: #0d1117; }
 
   @media (max-width: 860px) {
     .profile { position: static; }

@@ -25,11 +25,13 @@ const rendered = await Promise.all(
       <p class="authors">{entry.data.authors.join(', ')}</p>
       <p class="abstract">{entry.data.abstract}</p>
 
-      <div class="links">
-        {entry.data.pdf && <a href={entry.data.pdf}>PDF</a>}
-        {entry.data.code && <a href={entry.data.code}>Code</a>}
-        {entry.data.slides && <a href={entry.data.slides}>Slides</a>}
-      </div>
+      {(entry.data.pdf || entry.data.code || entry.data.slides) && (
+        <div class="links">
+          {entry.data.pdf && <a href={entry.data.pdf}>PDF</a>}
+          {entry.data.code && <a href={entry.data.code}>Code</a>}
+          {entry.data.slides && <a href={entry.data.slides}>Slides</a>}
+        </div>
+      )}
 
       <details>
         <summary>More detail</summary>

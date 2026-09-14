@@ -1,6 +1,6 @@
 ---
 title: TradingClaw
-role: AI / Backend Engineer
+role: AI / Backend Engineer (Group Project)
 period: Apr 2026 – Present
 summary: A LangGraph multi-agent system that searches the live web, analyses market behaviour, and explains its predictions.
 repo: https://github.com/ductai05/TradingClaw
@@ -25,3 +25,7 @@ reasons a person can weigh.
 
 FastAPI microservices backed by PostgreSQL handle high-frequency data streams, user
 state, and per-call API cost metrics.
+
+## My role
+
+AI / Backend Engineer (Group Project). This was built as part of a team, not solo.

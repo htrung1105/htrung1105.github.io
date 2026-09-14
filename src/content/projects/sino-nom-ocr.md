@@ -1,8 +1,8 @@
 ---
 title: Sino-Nom / Chinese OCR
-role: ML Engineer
+role: ML Engineer (Group Project)
 period: Nov 2025 – Dec 2025
-summary: Fine-tuned PP-OCRv5 text detection on degraded historical Sino-Nom documents, lifting H-mean by 30.2 points.
+summary: Fine-tuned PP-OCRv5 text detection on degraded historical Sino-Nom documents, lifting H-mean by 30.2% relative (0.731 → 0.952).
 repo: https://github.com/ductai05/NLP-ChineseOCR
 tags: [OCR, PaddlePaddle, Computer Vision, Go]
 metrics:
@@ -31,5 +31,9 @@ optimised DBLoss.
 
 ## Results
 
-H-mean improved by 30.2 points, from 0.731 to 0.952, at 0.966 precision on the NomNaOCR
+H-mean improved by 30.2% relative, from 0.731 to 0.952, at 0.966 precision on the NomNaOCR
 benchmark.
+
+## My role
+
+ML Engineer (Group Project). This was built as part of a team, not solo.

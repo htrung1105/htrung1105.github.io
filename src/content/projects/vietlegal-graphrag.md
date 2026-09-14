@@ -1,6 +1,6 @@
 ---
 title: Vietnamese Legal GraphRAG
-role: AI / Full-stack Engineer
+role: AI / Full-stack Engineer (Group Project)
 period: Apr 2026 – Present
 summary: A GraphRAG system that maps Vietnamese legal text into a knowledge graph and answers questions with transparent citations.
 repo: https://github.com/ductai05/VietLegalGraphRAG
@@ -34,3 +34,7 @@ retrieval stack assesses legal risk against it.
 
 Over 7.4 million legal articles and 350K document chunks are indexed. Answers are served
 through FastAPI microservices and carry citations back to the source statute.
+
+## My role
+
+AI / Full-stack Engineer (Group Project). This was built as part of a team, not solo.

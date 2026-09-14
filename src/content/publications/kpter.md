@@ -3,8 +3,7 @@ title: 'KPTER: K-Pointer for Temporal Event Retrieval'
 venue: SOICT 2025
 year: 2025
 authors:
-  - Nguyen Le Hoang Trung
-  - Team WATLERE
+  - Nguyen Le Hoang Trung et al.
 award: Best Presentation Award
 abstract: A sequential re-ranking algorithm for temporal event retrieval, paired with Weighted Reciprocal Rank Fusion, evaluated within a zero-shot multimodal retrieval framework combining OCR, ASR, semantic embeddings, and open-vocabulary object detection.
 ---

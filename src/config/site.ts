@@ -19,4 +19,10 @@ export const site = {
   ],
 } as const;
 
+export const postCategoryLabels = {
+  project: 'Project',
+  paper: 'Paper',
+  career: 'Career',
+} as const;
+
 export type Site = typeof site;

@@ -22,11 +22,10 @@ const { tags } = Astro.props;
   }
   .chip:hover { color: var(--text); }
   .chip.on {
-    color: #fff;
+    color: var(--on-accent);
     background: var(--accent);
     border-color: var(--accent);
   }
-  :global(:root[data-theme='dark']) .chip.on { color: #0d1117; }
 </style>
 
 <script>

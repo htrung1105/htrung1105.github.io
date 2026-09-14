@@ -22,23 +22,25 @@ const items = await Promise.all(
   {items.length === 0 ? (
     <p class="empty">No photographs yet.</p>
   ) : (
-    <div class="grid">
-      {items.map(({ photo, full }) => (
-        <button
-          type="button"
-          class="shot"
-          data-full={full}
-          data-alt={photo.data.alt}
-          data-caption={photo.data.caption}
-        >
-          <Image src={photo.data.image} alt={photo.data.alt} width={520} height={390} />
-          <span>{photo.data.caption}</span>
-        </button>
-      ))}
-    </div>
-  )}
+    <>
+      <div class="grid">
+        {items.map(({ photo, full }) => (
+          <button
+            type="button"
+            class="shot"
+            data-full={full}
+            data-alt={photo.data.alt}
+            data-caption={photo.data.caption}
+          >
+            <Image src={photo.data.image} alt={photo.data.alt} width={520} height={390} />
+            <span>{photo.data.caption}</span>
+          </button>
+        ))}
+      </div>
 
-  <Lightbox />
+      <Lightbox />
+    </>
+  )}
 </PageLayout>
 
 <style>

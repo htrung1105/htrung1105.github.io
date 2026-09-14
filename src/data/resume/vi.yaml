@@ -7,7 +7,7 @@ summary: >-
   dựng hệ thống GraphRAG, agent và thị giác máy tính từ nghiên cứu đến triển khai FastAPI.
   Mong muốn tìm vị trí thực tập AI Research hoặc AI Engineer để hiện thực hóa ý tưởng
   nghiên cứu thành sản phẩm thực tế, đáng tin cậy.
-pdf: /files/resume-vi.pdf
+pdf: /files/resume.pdf
 sections:
   - heading: Học vấn
     kind: entries
@@ -36,7 +36,7 @@ sections:
     kind: entries
     entries:
       - title: Vietnamese Legal GraphRAG
-        subtitle: Kỹ sư AI / Full-stack
+        subtitle: Kỹ sư AI / Full-stack (Dự án nhóm)
         date: 04/2026 – nay
         meta: github.com/ductai05/VietLegalGraphRAG
         bullets:
@@ -45,18 +45,18 @@ sections:
           - Hiện thực module phân tích hợp đồng dùng PaddleOCR để trích xuất và đánh giá rủi ro pháp lý từ ảnh tài liệu.
           - Triển khai microservices FastAPI cung cấp thông tin thời gian thực kèm trích dẫn pháp lý minh bạch.
       - title: TradingClaw
-        subtitle: Kỹ sư AI / Backend
+        subtitle: Kỹ sư AI / Backend (Dự án nhóm)
         date: 04/2026 – nay
         meta: github.com/ductai05/TradingClaw
         bullets:
-          - Xây dựng hệ sinh thái điều khiển bởi LLM với các agent LangGraph chuyên biệt cho tìm kiếm web thời gian thực và phân tích hành vi cá nhân hóa; dùng XAI để diễn giải dự đoán hộp đen.
+          - Xây dựng hệ sinh thái điều khiển bởi LLM với các agent LangGraph chuyên biệt cho tìm kiếm web thời gian thực và phân tích hành vi thị trường; dùng XAI để diễn giải dự đoán hộp đen.
           - Triển khai microservices FastAPI mở rộng tích hợp PostgreSQL để quản lý luồng dữ liệu tần suất cao, trạng thái người dùng và chi phí API.
       - title: Sino-Nom / Chinese OCR
-        subtitle: ML Engineer
+        subtitle: ML Engineer (Dự án nhóm)
         date: 11/2025 – 12/2025
         meta: github.com/ductai05/NLP-ChineseOCR
         bullets:
-          - Xây dựng pipeline thu thập dữ liệu hiệu năng cao bằng Goroutines (Go) để crawl và tiền xử lý bộ dữ liệu lịch sử CWKB — hơn 3.4K ảnh tài liệu Hán–Nôm, kết hợp cùng NomNaOCR.
+          - Xây dựng pipeline thu thập dữ liệu hiệu năng cao bằng Goroutines (Go) để crawl và tiền xử lý bộ dữ liệu lịch sử CWKB — hơn 3.4K ảnh tài liệu Hán–Nôm.
           - Fine-tune mô hình phát hiện chữ (text detection) PP-OCRv5 (backbone PP-HGNetV2-B4, thuật toán DB) trên PaddlePaddle GPU; huấn luyện phân tán trên 2× NVIDIA T4 với Cosine Annealing và DBLoss tối ưu.
           - Tăng H-mean 30.2% (0.731 → 0.952) với precision 0.966 trên tập kiểm thử NomNaOCR, khắc phục lỗi phát hiện với ký tự Hán-Nôm suy biến nặng.
   - heading: Kỹ năng

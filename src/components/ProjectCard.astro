@@ -6,7 +6,7 @@ const { project } = Astro.props;
 const { title, role, period, summary, tags, metrics } = project.data;
 ---
 <article class="card project" data-tags={tags.join(',')}>
-  <a href={`/work/${project.id}`} class="title">{title}</a>
+  <h2 class="title-h"><a href={`/work/${project.id}`} class="title">{title}</a></h2>
   <p class="meta">{role} · {period}</p>
   <p class="summary">{summary}</p>
 
@@ -25,6 +25,7 @@ const { title, role, period, summary, tags, metrics } = project.data;
 
 <style>
   .project { padding: var(--space-5); }
+  .title-h { margin: 0; font-size: inherit; font-weight: inherit; }
   .title {
     font-size: 18px;
     font-weight: 700;

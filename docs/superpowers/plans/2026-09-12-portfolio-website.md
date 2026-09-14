@@ -15,7 +15,7 @@
 - Accent colour is `#4f46e5` in light mode and `#a5b4fc` in dark mode. Never hardcode either value in a component — always use `var(--accent)`.
 - Every colour, radius and spacing value comes from a CSS custom property defined in `src/styles/global.css`. A raw hex in a component file is a defect.
 - No CSS framework, no UI component library, no CSS-in-JS. Plain CSS and Astro scoped `<style>` blocks only.
-- Client-side JavaScript is permitted in exactly three places: the theme toggle, the tag/category filter, and the gallery lightbox. Every other page ships zero JS.
+- Client-side JavaScript is permitted in exactly four places: the theme toggle, the résumé language switch, the tag/category filter, and the gallery lightbox. Every other page ships zero JS.
 - Site language is English. Only `/resume` carries Vietnamese content.
 - `site` in `astro.config.mjs` is `https://htrung1105.github.io`. Do **not** set `base` — the repository is named `htrung1105.github.io`, so the base path is `/` on both hosts.
 - Every `<Image />` and `<Picture />` requires a non-empty, descriptive `alt`.

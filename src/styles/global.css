@@ -13,6 +13,8 @@
   --radius-md: 12px;
   --radius-pill: 999px;
 
+  --on-accent: #fff;
+
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -40,6 +42,8 @@
   --text: #e6edf3;
   --text-muted: #8b98a5;
   --shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+
+  --on-accent: #0d1117;
 
   color-scheme: dark;
 }
@@ -91,6 +95,25 @@ img {
   clip: rect(0 0 0 0);
   white-space: nowrap;
   border: 0;
+}
+
+.visually-hidden:focus {
+  position: fixed;
+  top: var(--space-2);
+  left: var(--space-2);
+  width: auto;
+  height: auto;
+  clip: auto;
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  z-index: 100;
+}
+
+main {
+  scroll-margin-top: 70px;
 }
 
 .container {
