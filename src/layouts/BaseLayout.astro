@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { site as siteInfo } from '../config/site';
 
 interface Props {
   title: string;
@@ -34,6 +35,22 @@ const ogImageUrl = new URL(ogImage, Astro.site);
         document.documentElement.dataset.theme = theme;
       })();
     </script>
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: siteInfo.name,
+        jobTitle: 'AI Engineer, AI Researcher',
+        email: `mailto:${siteInfo.email}`,
+        url: siteInfo.url,
+        sameAs: [siteInfo.github, siteInfo.linkedin],
+        address: { '@type': 'PostalAddress', addressLocality: 'Ho Chi Minh City', addressCountry: 'VN' },
+        alumniOf: { '@type': 'CollegeOrUniversity', name: 'University of Science, VNU-HCM' },
+        knowsAbout: ['Multimodal Retrieval', 'Large Language Models', 'OCR', 'GraphRAG'],
+      })}
+    />
   </head>
   <body>
     <a href="#main" class="visually-hidden">Skip to content</a>

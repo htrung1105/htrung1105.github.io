@@ -1,0 +1,45 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { site } from '../config/site';
+
+const links = [
+  { label: 'Email', value: site.email, href: `mailto:${site.email}` },
+  { label: 'GitHub', value: 'github.com/htrung1105', href: site.github },
+  { label: 'LinkedIn', value: 'Nguyen Trung', href: site.linkedin },
+];
+---
+<PageLayout title="Contact — Nguyen Le Hoang Trung" description="Get in touch about AI research and engineering internships.">
+  <h1>Contact</h1>
+  <p class="lede">
+    Open to AI Research and AI Engineer internships. Email is the fastest way to reach me.
+  </p>
+
+  <ul class="links">
+    {links.map((link) => (
+      <li class="card">
+        <span class="label">{link.label}</span>
+        <a href={link.href}>{link.value}</a>
+      </li>
+    ))}
+  </ul>
+
+  <p class="loc">Based in {site.location}.</p>
+</PageLayout>
+
+<style>
+  h1 { margin: 0; font-size: 30px; font-weight: 800; letter-spacing: -0.03em; }
+  .lede { margin: var(--space-2) 0 var(--space-5); max-width: 56ch; color: var(--text-muted); }
+  .links { list-style: none; display: grid; gap: var(--space-3); margin: 0; padding: 0; }
+  .links li { padding: var(--space-4); }
+  .label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+  .links a { font-weight: 600; overflow-wrap: anywhere; }
+  .loc { margin-top: var(--space-5); color: var(--text-muted); }
+</style>
