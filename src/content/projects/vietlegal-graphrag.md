@@ -1,15 +1,15 @@
 ---
 title: Vietnamese Legal GraphRAG
-role: AI / Full-stack Engineer (Group Project)
-period: Apr 2026 – Present
+role: AI Engineer (Group Project)
+period: Apr 2026 – Jul 2026
 summary: A GraphRAG system that maps Vietnamese legal text into a knowledge graph and answers questions with transparent citations.
 repo: https://github.com/ductai05/VietLegalGraphRAG
 tags: [GraphRAG, LLM, OCR, Neo4j, FastAPI]
 metrics:
-  - value: 7.4M
-    label: legal articles indexed
-  - value: 350K
-    label: document chunks
+  - value: 353,746
+    label: legal documents
+  - value: 7.48M
+    label: text chunks
 featured: true
 order: 1
 ---
@@ -22,19 +22,22 @@ with no provenance.
 
 ## Approach
 
-The pipeline maps statutes into a knowledge graph, so retrieval follows the citation
-structure rather than guessing from surface similarity. Domain jargon is resolved with
-`vietlegal-harrier` embeddings, and an LLM adapts the register of the answer to the
-reader's role.
+The pipeline maps statutes into a Neo4j knowledge graph, so multi-hop questions follow
+the citation structure rather than guessing from surface similarity. Retrieval fuses BM25
+with dense search over `darklethelong/vnlegal-lal` embeddings using Reciprocal Rank
+Fusion, and a cross-encoder reranks the result. An LLM adapts the register of the answer
+to the reader's role.
 
-A separate module handles scanned contracts: PaddleOCR extracts the text, and the same
-retrieval stack assesses legal risk against it.
+Scanned documents go through Google Cloud Vision OCR, and the extracted text feeds the
+same retrieval stack.
 
 ## Results
 
-Over 7.4 million legal articles and 350K document chunks are indexed. Answers are served
-through FastAPI microservices and carry citations back to the source statute.
+The corpus is 353,746 legal documents split into about 7.48 million chunks, held in a
+Neo4j graph of more than 7 million nodes and 20 million edges. Hybrid retrieval raised
+NDCG@10 by 12% and Recall@10 by 20%. A FastAPI agentic-RAG service answers in under
+5 seconds and carries citations back to the source statute.
 
 ## My role
 
-AI / Full-stack Engineer (Group Project). This was built as part of a team, not solo.
+AI Engineer (Group Project). This was built as part of a team, not solo.

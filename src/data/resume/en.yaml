@@ -2,11 +2,11 @@ lang: en
 label: English
 headline: AI Engineer · AI Researcher
 summary: >-
-  Third-year Artificial Intelligence undergraduate and AI researcher specializing in
-  multimodal retrieval, large language models, and OCR. Hands-on experience building
-  end-to-end GraphRAG, agentic, and computer-vision systems from research to FastAPI
-  deployment. Seeking an AI Research or AI Engineer internship to turn cutting-edge
-  research into reliable, production-ready products.
+  Final-year Artificial Intelligence student at VNU-HCM University of Science and
+  co-author of a Springer paper (SOICT 2025) on multimodal video retrieval. Builds
+  RAG/GraphRAG, LLM-agent and OCR systems end to end, from retrieval design and model
+  fine-tuning to FastAPI services. 2nd Prize, ICPC Southern Region 2024; English B2
+  (VSTEP). Seeking an AI Engineer or AI Research internship.
 pdf: /files/resume.pdf
 sections:
   - heading: Education
@@ -16,69 +16,71 @@ sections:
         subtitle: B.Sc. in Artificial Intelligence
         date: 2023 – 2027 (expected)
         meta: >-
-          GPA 3.19 / 4.0 · Core coursework: Machine Learning, NLP, Operating Systems,
-          Data Structures & Algorithms, OOP, Software Engineering for AI, DevOps,
-          Computer Networks, Data Mining & Analysis, Databases, AI Foundation.
+          GPA 3.19 / 4.0 · Coursework: Machine Learning, NLP, Data Mining, Data Structures
+          & Algorithms, Software Engineering for AI, DevOps.
       - title: Quang Trung High School for the Gifted, Binh Phuoc
+        subtitle: Informatics
         date: 2020 – 2023
-        meta: GPA 9.5 / 10 · Vallet Scholarship 2023 · Member of the National Informatics Olympiad team.
+        meta: GPA 9.5 / 10 · Vallet Scholarship 2023 · National Informatics Olympiad team.
   - heading: Research & Publication
     kind: entries
     entries:
       - title: 'KPTER: K-Pointer for Temporal Event Retrieval'
+        subtitle: Systems Engineer, Team WATLERE
         date: Jul 2024 – Nov 2025
-        meta: Co-author · AI Researcher & Retrieval Engineer (Team WATLERE) — AI Challenge HCMC 2025 & SOICT 2025
+        meta: >-
+          D. A. K. Dinh, D.-T. Dinh, L. H. T. Nguyen, T. N. Nguyen. In: Information and
+          Communication Technology (SOICT 2025), CCIS vol. 2913, pp. 304–318, Springer, 2027.
+          doi:10.1007/978-981-92-2587-3_24
         bullets:
-          - Best Presentation Award at SOICT 2025; ranked Top 12 / 80+ at AI Challenge HCMC 2025.
-          - Designed and implemented the K-Pointer sequential re-ranking algorithm together with a Weighted Reciprocal Rank Fusion (WRRF) strategy for temporal event retrieval.
-          - Built the multimodal retrieval pipeline by integrating OCR, ASR, semantic embeddings, and open-vocabulary object detection into a zero-shot retrieval framework.
+          - Best Presentation Award, SOICT 2025; ranked Top 12 / 80+ teams at AI Challenge HCMC 2025.
+          - Built the multimodal indexing pipeline over a 300-hour video corpus, combining OCR, ASR, semantic embeddings and open-vocabulary object detection for zero-shot event retrieval.
+          - Built the search backend and API serving the team's K-Pointer + WRRF temporal re-ranking (+10% Recall@1).
   - heading: Projects
     kind: entries
     entries:
       - title: Vietnamese Legal GraphRAG
-        subtitle: AI / Full-stack Engineer (Group Project)
-        date: Apr 2026 – Present
-        meta: github.com/ductai05/VietLegalGraphRAG
+        subtitle: AI Engineer (team project)
+        date: Apr 2026 – Jul 2026
+        meta: Neo4j · LangGraph · BM25 + dense retrieval · FastAPI · github.com/ductai05/VietLegalGraphRAG
         bullets:
-          - Indexed over 7.4 million legal articles and 350K document chunks to support scalable legal retrieval.
-          - Developed a GraphRAG pipeline that maps complex Vietnamese legal text into a knowledge graph; explains legal jargon via vietlegal-harrier embeddings and LLMs for role-adaptive QA.
-          - Implemented an OCR-based contract analysis module using PaddleOCR for extracting and assessing legal risks from document images.
-          - Deployed robust FastAPI microservices delivering real-time insights backed by transparent legal citations.
+          - 'Owned the knowledge-graph layer: indexed 353K+ Vietnamese legal documents into a Neo4j graph of 7M+ nodes and 20M+ edges to answer multi-hop legal questions.'
+          - Raised NDCG@10 by 12% and Recall@10 by 20% by fusing BM25 + dense retrieval (vnlegal-lal) via RRF and a cross-encoder.
+          - Built the FastAPI agentic-RAG Q&A service with role-adaptive answers and verified legal citations, responding in under 5 s.
       - title: TradingClaw
-        subtitle: AI / Backend Engineer (Group Project)
-        date: Apr 2026 – Present
-        meta: github.com/ductai05/TradingClaw
+        subtitle: AI / Backend Engineer (team project)
+        date: Apr 2026 – Jul 2026
+        meta: FastAPI · Supabase PostgreSQL · Gemini · Binance Testnet · github.com/ductai05/TradingClaw
         bullets:
-          - Built a multi-agent system using LangGraph for real-time web search and market behavioral analysis, leveraging XAI to turn black-box predictions into actionable trading insights.
-          - Deployed scalable FastAPI microservices integrated with PostgreSQL to manage high-frequency data streams, user state, and API-cost metrics.
-      - title: Sino-Nom / Chinese OCR
-        subtitle: ML Engineer (Group Project)
+          - 'Built the FastAPI backend: authentication, Binance Testnet sandbox orders, a gateway to the ML services (FinBERT, Kronos, Isolation Forest) and ML result history.'
+          - Integrated Gemini for the AI trading tutor and added middleware that logs tokens and cost for every LLM request.
+      - title: Sino-Nom Historical OCR
+        subtitle: ML Engineer (team project)
         date: Nov 2025 – Dec 2025
-        meta: github.com/ductai05/NLP-ChineseOCR
+        meta: PaddlePaddle · PP-OCRv5 · 2× NVIDIA T4 · github.com/ductai05/NLP-ChineseOCR
         bullets:
-          - Built a concurrent Go-based crawling pipeline to collect and preprocess the CWKB historical dataset with over 3.4K Sino-Nom document images.
-          - Fine-tuned PP-OCRv5 detection (PP-HGNetV2-B4 backbone, DB algorithm) on PaddlePaddle GPU; ran distributed training on 2× NVIDIA T4 with Cosine Annealing and an optimized DBLoss.
-          - Improved H-mean by 30.2% (0.731 → 0.952) at 0.966 precision on the NomNaOCR benchmark, resolving detection failures on heavily degraded Sino-Nom characters.
+          - Fine-tuned PP-OCRv5 text detection (PP-HGNetV2-B4 backbone, DB head) on a 3.4K+ image corpus, with distributed training on 2× T4, Cosine Annealing and a tuned DBLoss.
+          - Raised H-mean by 30.2% (0.731 → 0.952) at 0.966 precision on the NomNaOCR test set; led evaluation and error analysis.
   - heading: Skills
     kind: skills
     skills:
-      - group: Languages
+      - group: Programming
         items: Python, C/C++, SQL, TypeScript
       - group: AI & ML
-        items: PyTorch, Hugging Face Transformers, PaddlePaddle, NumPy, Pandas, Scikit-learn
+        items: PyTorch, Hugging Face Transformers, PaddlePaddle, scikit-learn, NumPy, Pandas
       - group: LLM & RAG
-        items: LangChain, LangGraph, LightRAG, vLLM
+        items: LangChain, LangGraph, GraphRAG, vLLM, hybrid retrieval (BM25 + dense), cross-encoder reranking
       - group: Backend
-        items: FastAPI, NestJS, REST API
-      - group: DevOps & MLOps
+        items: FastAPI, NestJS, REST APIs
+      - group: Data & Search
+        items: PostgreSQL, Neo4j, Elasticsearch, Supabase
+      - group: DevOps
         items: Docker, Kubernetes, GitHub Actions, Git, Linux
-      - group: Databases
-        items: PostgreSQL, Neo4j, Supabase, Elasticsearch
-      - group: Research
-        items: LLMs, Multimodal Retrieval, OCR, ASR, Object Detection
+      - group: Languages
+        items: Vietnamese (native), English B2 (VSTEP)
   - heading: Awards & Certifications
     kind: list
     list:
       - 2nd Prize — ICPC Southern Region 2024; contestant at the ICPC Vietnam National round 2024.
       - Consolation Prize — Vietnamese National Informatics Olympiad (VOI) 2023.
-      - 'Certifications (DeepLearning.AI, 2026): Data Analytics Foundations · Agentic AI · Linear Algebra for Machine Learning and Data Science.'
+      - 'Certifications (DeepLearning.AI, 2026): Agentic AI · Data Analytics Foundations · Linear Algebra for ML.'

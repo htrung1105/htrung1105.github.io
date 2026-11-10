@@ -6,14 +6,14 @@ export const site = {
   email: 'nguyenlehoangtrung1105@gmail.com',
   phone: '+84 384 317 014',
   github: 'https://github.com/htrung1105',
-  linkedin: 'https://www.linkedin.com/in/nguy%E1%BB%85n-trung-398283144/',
-  linkedinName: 'Nguyen Trung',
+  linkedin: 'https://www.linkedin.com/in/trungnlh/',
+  linkedinName: 'trungnlh',
   url: 'https://htrung1105.github.io',
   tagline: 'builds retrieval systems.',
   blurb:
-    'Third-year Artificial Intelligence undergraduate at VNU-HCM, working on multimodal retrieval, large language models, and OCR — from research prototype through to FastAPI deployment.',
+    'Final-year Artificial Intelligence undergraduate at VNU-HCM, working on multimodal retrieval, large language models, and OCR — from research prototype through to FastAPI deployment.',
   stats: [
-    { value: '7.4M', label: 'legal articles indexed' },
+    { value: '353,746', label: 'legal documents' },
     { value: '+30.2%', label: 'OCR H-mean gain' },
     { value: 'Top 12', label: 'AI Challenge HCMC' },
   ],
