@@ -33,7 +33,7 @@ Location:  Ho Chi Minh City, Vietnam
 Email:     nguyenlehoangtrung1105@gmail.com
 Phone:     +84 384 317 014
 GitHub:    https://github.com/htrung1105
-LinkedIn:  https://www.linkedin.com/in/nguy%E1%BB%85n-trung-398283144/
+LinkedIn:  https://www.linkedin.com/in/trungnlh/
 ```
 
 Résumé source of truth: `D:\Local Data\Resume\work\resume-full.html` (contains both EN and VI).
@@ -418,13 +418,13 @@ export const site = {
   email: 'nguyenlehoangtrung1105@gmail.com',
   phone: '+84 384 317 014',
   github: 'https://github.com/htrung1105',
-  linkedin: 'https://www.linkedin.com/in/nguy%E1%BB%85n-trung-398283144/',
+  linkedin: 'https://www.linkedin.com/in/trungnlh/',
   url: 'https://htrung1105.github.io',
   tagline: 'builds retrieval systems.',
   blurb:
-    'Third-year Artificial Intelligence undergraduate at VNU-HCM, working on multimodal retrieval, large language models, and OCR — from research prototype through to FastAPI deployment.',
+    'Final-year Artificial Intelligence undergraduate at VNU-HCM, working on multimodal retrieval, large language models, and OCR — from research prototype through to FastAPI deployment.',
   stats: [
-    { value: '7.4M', label: 'legal articles indexed' },
+    { value: '353,746', label: 'legal documents' },
     { value: '+30.2%', label: 'OCR H-mean gain' },
     { value: 'Top 12', label: 'AI Challenge HCMC' },
   ],
@@ -543,7 +543,7 @@ lang: en
 label: English
 headline: AI Engineer · AI Researcher
 summary: >-
-  Third-year Artificial Intelligence undergraduate and AI researcher specializing in
+  Final-year Artificial Intelligence undergraduate and AI researcher specializing in
   multimodal retrieval, large language models, and OCR. Hands-on experience building
   end-to-end GraphRAG, agentic, and computer-vision systems from research to FastAPI
   deployment. Seeking an AI Research or AI Engineer internship to turn cutting-edge
@@ -581,16 +581,15 @@ sections:
         date: Apr 2026 – Present
         meta: github.com/ductai05/VietLegalGraphRAG
         bullets:
-          - Indexed over 7.4 million legal articles and 350K document chunks to support scalable legal retrieval.
-          - Developed a GraphRAG pipeline that maps complex Vietnamese legal text into a knowledge graph; explains legal jargon via vietlegal-harrier embeddings and LLMs for role-adaptive QA.
-          - Implemented an OCR-based contract analysis module using PaddleOCR for extracting and assessing legal risks from document images.
+          - Indexed 353,746 legal documents, split into about 7.48M chunks, to support scalable legal retrieval.
+          - Developed a GraphRAG pipeline that maps complex Vietnamese legal text into a knowledge graph; explains legal jargon via vnlegal-lal embeddings and LLMs for role-adaptive QA.
           - Deployed robust FastAPI microservices delivering real-time insights backed by transparent legal citations.
       - title: TradingClaw
         subtitle: AI / Backend Engineer (Group Project)
         date: Apr 2026 – Present
         meta: github.com/ductai05/TradingClaw
         bullets:
-          - Built a multi-agent system using LangGraph for real-time web search and market behavioral analysis, leveraging XAI to turn black-box predictions into actionable trading insights.
+          - Built the FastAPI backend: authentication, Binance Testnet sandbox orders, and a gateway to the ML services (FinBERT, Kronos, Isolation Forest).
           - Deployed scalable FastAPI microservices integrated with PostgreSQL to manage high-frequency data streams, user state, and API-cost metrics.
       - title: Sino-Nom / Chinese OCR
         subtitle: ML Engineer (Group Project)
@@ -634,7 +633,7 @@ lang: vi
 label: Tiếng Việt
 headline: Kỹ sư AI · Nghiên cứu viên AI
 summary: >-
-  Sinh viên năm ba ngành Trí tuệ Nhân tạo và nghiên cứu viên AI, chuyên sâu về truy hồi
+  Sinh viên năm cuối ngành Trí tuệ Nhân tạo và nghiên cứu viên AI, chuyên sâu về truy hồi
   đa phương thức (multimodal retrieval), mô hình ngôn ngữ lớn và OCR. Có kinh nghiệm xây
   dựng hệ thống GraphRAG, agent và thị giác máy tính từ nghiên cứu đến triển khai FastAPI.
   Mong muốn tìm vị trí thực tập AI Research hoặc AI Engineer để hiện thực hóa ý tưởng
@@ -672,16 +671,15 @@ sections:
         date: 04/2026 – nay
         meta: github.com/ductai05/VietLegalGraphRAG
         bullets:
-          - Đánh chỉ mục hơn 7.4 triệu văn bản pháp luật và 350K đoạn tài liệu để hỗ trợ truy hồi quy mô lớn, độ trễ thấp.
-          - Xây dựng pipeline GraphRAG để ánh xạ văn bản pháp luật Việt Nam thành đồ thị tri thức; giải thích thuật ngữ pháp lý qua embeddings vietlegal-harrier và LLM cho hỏi-đáp thích ứng theo vai trò.
-          - Hiện thực module phân tích hợp đồng dùng PaddleOCR để trích xuất và đánh giá rủi ro pháp lý từ ảnh tài liệu.
+          - Đánh chỉ mục 353.746 văn bản pháp luật, tách thành khoảng 7,48 triệu đoạn, để hỗ trợ truy hồi quy mô lớn, độ trễ thấp.
+          - Xây dựng pipeline GraphRAG để ánh xạ văn bản pháp luật Việt Nam thành đồ thị tri thức; giải thích thuật ngữ pháp lý qua embeddings vnlegal-lal và LLM cho hỏi-đáp thích ứng theo vai trò.
           - Triển khai microservices FastAPI cung cấp thông tin thời gian thực kèm trích dẫn pháp lý minh bạch.
       - title: TradingClaw
         subtitle: Kỹ sư AI / Backend
         date: 04/2026 – nay
         meta: github.com/ductai05/TradingClaw
         bullets:
-          - Xây dựng hệ sinh thái điều khiển bởi LLM với các agent LangGraph chuyên biệt cho tìm kiếm web thời gian thực và phân tích hành vi cá nhân hóa; dùng XAI để diễn giải dự đoán hộp đen.
+          - Xây dựng backend FastAPI: xác thực, lệnh sandbox Binance Testnet và gateway tới các dịch vụ ML (FinBERT, Kronos, Isolation Forest).
           - Triển khai microservices FastAPI mở rộng tích hợp PostgreSQL để quản lý luồng dữ liệu tần suất cao, trạng thái người dùng và chi phí API.
       - title: Sino-Nom / Chinese OCR
         subtitle: ML Engineer
@@ -1679,10 +1677,10 @@ summary: A GraphRAG system that maps Vietnamese legal text into a knowledge grap
 repo: https://github.com/ductai05/VietLegalGraphRAG
 tags: [GraphRAG, LLM, OCR, Neo4j, FastAPI]
 metrics:
-  - value: 7.4M
-    label: legal articles indexed
-  - value: 350K
-    label: document chunks
+  - value: 353,746
+    label: legal documents
+  - value: 7.48M
+    label: text chunks
 featured: true
 order: 1
 ---
@@ -1696,16 +1694,16 @@ with no provenance.
 ## Approach
 
 The pipeline maps statutes into a knowledge graph, so retrieval follows the citation
-structure rather than guessing from surface similarity. Domain jargon is resolved with
-`vietlegal-harrier` embeddings, and an LLM adapts the register of the answer to the
+structure rather than guessing from surface similarity. Retrieval uses
+`darklethelong/vnlegal-lal` embeddings, and an LLM adapts the register of the answer to the
 reader's role.
 
-A separate module handles scanned contracts: PaddleOCR extracts the text, and the same
-retrieval stack assesses legal risk against it.
+Scanned documents go through Google Cloud Vision OCR, and the extracted text feeds the
+same retrieval stack.
 
 ## Results
 
-Over 7.4 million legal articles and 350K document chunks are indexed. Answers are served
+The corpus is 353,746 legal documents split into about 7.48 million chunks. Answers are served
 through FastAPI microservices and carry citations back to the source statute.
 ```
 
@@ -1716,9 +1714,9 @@ Create `src/content/projects/tradingclaw.md`:
 title: TradingClaw
 role: AI / Backend Engineer
 period: Apr 2026 – Present
-summary: A LangGraph multi-agent system that searches the live web, analyses market behaviour, and explains its predictions.
+summary: A FastAPI trading backend with Binance Testnet sandbox orders, a gateway to ML services, a Gemini tutor, and per-request LLM cost logging.
 repo: https://github.com/ductai05/TradingClaw
-tags: [LangGraph, Multi-agent, XAI, PostgreSQL, FastAPI]
+tags: [FastAPI, PostgreSQL, Binance Testnet, Gemini, FinBERT]
 metrics: []
 featured: true
 order: 2
@@ -1726,19 +1724,19 @@ order: 2
 
 ## Problem
 
-Trading models predict well and explain nothing. A number with no reasoning behind it is
-not something anyone should act on.
+Learning to trade on a live exchange puts real money at risk, and machine-learning
+signals are hard to judge without somewhere safe to act on them.
 
 ## Approach
 
-Specialised LangGraph agents split the work: one searches the live web, another analyses
-market behaviour. XAI techniques turn the resulting black-box predictions into stated
-reasons a person can weigh.
+A FastAPI backend handles authentication and places sandbox orders through Binance
+Testnet. A gateway fronts the ML services (FinBERT, Kronos, Isolation Forest), and Gemini
+powers the AI trading tutor.
 
 ## Results
 
-FastAPI microservices backed by PostgreSQL handle high-frequency data streams, user
-state, and per-call API cost metrics.
+Application data lives in Supabase PostgreSQL. Middleware logs the tokens and cost of
+every LLM request.
 ```
 
 Create `src/content/projects/sino-nom-ocr.md`:
@@ -2745,7 +2743,7 @@ import { site } from '../config/site';
 const links = [
   { label: 'Email', value: site.email, href: `mailto:${site.email}` },
   { label: 'GitHub', value: 'github.com/htrung1105', href: site.github },
-  { label: 'LinkedIn', value: 'Nguyen Trung', href: site.linkedin },
+  { label: 'LinkedIn', value: 'trungnlh', href: site.linkedin },
 ];
 ---
 <PageLayout title="Contact — Nguyen Le Hoang Trung" description="Get in touch about AI research and engineering internships.">
