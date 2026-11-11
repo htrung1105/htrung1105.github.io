@@ -9,8 +9,8 @@ const rendered = await Promise.all(
 );
 ---
 <PageLayout title="Publications — Nguyen Le Hoang Trung" description="Papers and research output in multimodal retrieval and OCR.">
-  <h1>Publications</h1>
-  <p class="lede">Peer-reviewed and competition research output.</p>
+  <h1 class="page-title">Publications</h1>
+  <p class="lede">Peer-reviewed research.</p>
 
   {rendered.map(({ entry, Content }) => (
     <article class="card pub">
@@ -27,7 +27,7 @@ const rendered = await Promise.all(
 
       {(entry.data.pdf || entry.data.code || entry.data.slides) && (
         <div class="links">
-          {entry.data.pdf && <a href={entry.data.pdf}>PDF</a>}
+          {entry.data.pdf && <a href={entry.data.pdf}>Paper (DOI)</a>}
           {entry.data.code && <a href={entry.data.code}>Code</a>}
           {entry.data.slides && <a href={entry.data.slides}>Slides</a>}
         </div>

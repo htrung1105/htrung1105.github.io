@@ -1,39 +1,38 @@
 ---
-title: Sino-Nom / Chinese OCR
-role: ML Engineer (Group Project)
+title: Sino-Nom Historical OCR
+role: ML Engineer (team project)
 period: Nov 2025 – Dec 2025
-summary: Fine-tuned PP-OCRv5 text detection on degraded historical Sino-Nom documents, lifting H-mean by 30.2% relative (0.731 → 0.952).
+summary: Fine-tuned PP-OCRv5 text detection on historical Sino-Nom pages, lifting H-mean from 0.731 to 0.952 on the NomNaOCR test set.
 repo: https://github.com/ductai05/NLP-ChineseOCR
-tags: [OCR, PaddlePaddle, Computer Vision, Go]
+tags: [OCR, PaddlePaddle, PP-OCRv5, Computer Vision]
 metrics:
-  - value: +30.2%
-    label: H-mean (0.731 → 0.952)
+  - value: 0.731 → 0.952
+    label: H-mean (+30.2% relative)
   - value: '0.966'
     label: precision
-  - value: 3.4K
-    label: document images
+  - value: '0.937'
+    label: recall
+  - value: 3,411
+    label: Sino-Nom pages
 featured: true
 order: 3
+cover: ../../assets/banners/sinonom.svg
+coverAlt: Vertical Sino-Nom text columns with detection boxes
 ---
 
-## Problem
+## Overview
 
-Off-the-shelf detection fails on heavily degraded Sino-Nom characters. Historical scans
-carry bleed-through, faded strokes, and irregular column layout that modern training
-data never covers.
+Sino-Nom documents are written in vertical columns on aged paper, and general-purpose
+text detectors trained on modern print miss many of their characters. The work here was
+to adapt a modern detector to these pages and measure the gain honestly on a held-out set.
 
-## Approach
+## Highlights
 
-A concurrent Go crawler collected and preprocessed the CWKB historical dataset — over
-3.4K document images. PP-OCRv5 detection (PP-HGNetV2-B4 backbone, DB algorithm) was
-fine-tuned on PaddlePaddle GPU, trained across 2× NVIDIA T4 with Cosine Annealing and an
-optimised DBLoss.
+- Fine-tuned and evaluated **PP-OCRv5** text detection (DB algorithm) on **3,411**
+  Sino-Nom pages.
+- H-mean rose from **0.731 to 0.952** (a 30.2% relative gain, +22.1 points), with
+  precision **0.966** and recall **0.937** on the NomNaOCR test set.
 
-## Results
+## Stack
 
-H-mean improved by 30.2% relative, from 0.731 to 0.952, at 0.966 precision on the NomNaOCR
-benchmark.
-
-## My role
-
-ML Engineer (Group Project). This was built as part of a team, not solo.
+PaddlePaddle · PP-OCRv5

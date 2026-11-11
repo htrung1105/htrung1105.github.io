@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" width="1200" height="500">
+  <rect width="1200" height="500" fill="#14100a"/>
+  <rect x="40" y="30" width="1120" height="440" rx="6" fill="#2a2116"/>
+  <g fill="#d6c3a1" fill-opacity=".85" font-family="'Noto Serif CJK SC','SimSun','MS Mincho',serif" font-size="52" writing-mode="tb">
+    <text x="1060" y="80">南國山河南帝居</text><text x="960" y="80">截然定分在天書</text><text x="860" y="80">如何逆虜來侵犯</text><text x="760" y="80">汝等行看取敗虛</text>
+  </g>
+  <g fill="none" stroke="#67e8f9" stroke-width="3"><rect x="1028" y="66" width="64" height="412" rx="4"/><rect x="928" y="66" width="64" height="412" rx="4"/><rect x="828" y="66" width="64" height="412" rx="4"/><rect x="728" y="66" width="64" height="412" rx="4"/></g>
+  <text x="80" y="120" fill="#e6edf5" font-family="ui-monospace,Consolas,monospace" font-size="30">PP-OCRv5 · DB detection</text>
+  <text x="80" y="170" fill="#67e8f9" font-family="ui-monospace,Consolas,monospace" font-size="30">H-mean 0.731 → 0.952</text>
+</svg>

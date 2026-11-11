@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" width="1200" height="500">
+  <defs><radialGradient id="g" cx="30%" cy="30%" r="80%"><stop offset="0" stop-color="#1c1838"/><stop offset="1" stop-color="#070b12"/></radialGradient></defs>
+  <rect width="1200" height="500" fill="url(#g)"/>
+  <g fill="#232a44" stroke="#3b4566" stroke-width="2">
+    <rect x="60" y="150" width="150" height="100" rx="8"/><rect x="230" y="150" width="150" height="100" rx="8"/><rect x="400" y="150" width="150" height="100" rx="8"/><rect x="570" y="150" width="150" height="100" rx="8"/><rect x="740" y="150" width="150" height="100" rx="8"/><rect x="910" y="150" width="150" height="100" rx="8"/>
+  </g>
+  <g fill="none" stroke="#a78bfa" stroke-width="4"><rect x="230" y="150" width="150" height="100" rx="8"/><rect x="570" y="150" width="150" height="100" rx="8"/><rect x="910" y="150" width="150" height="100" rx="8"/></g>
+  <path d="M305 120C380 70 570 70 645 120M645 120C720 70 910 70 985 120" fill="none" stroke="#a78bfa" stroke-width="3" stroke-dasharray="6 8"/>
+  <g fill="#e6edf5" font-family="ui-monospace,Consolas,monospace" font-size="26"><text x="280" y="300">p₁</text><text x="620" y="300">p₂</text><text x="960" y="300">p₃</text></g>
+  <path d="M60 340H1140" stroke="#3b4566" stroke-width="2"/><path d="M1120 330L1140 340L1120 350" fill="none" stroke="#3b4566" stroke-width="2"/>
+  <text x="60" y="440" fill="#e6edf5" fill-opacity=".9" font-family="ui-monospace,Consolas,monospace" font-size="30">K-Pointer: ordered events in O(KN)</text>
+</svg>

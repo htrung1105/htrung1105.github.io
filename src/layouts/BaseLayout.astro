@@ -27,6 +27,9 @@ const ogImageUrl = new URL(ogImage, Astro.site);
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImageUrl} />
     <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400..600&display=swap" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="alternate" type="application/rss+xml" title="Nguyen Le Hoang Trung — Blog" href="/rss.xml" />
     <script is:inline>
@@ -44,12 +47,13 @@ const ogImageUrl = new URL(ogImage, Astro.site);
         '@type': 'Person',
         name: siteInfo.name,
         jobTitle: siteInfo.role,
+        identifier: siteInfo.orcid,
         email: `mailto:${siteInfo.email}`,
         url: siteInfo.url,
-        sameAs: [siteInfo.github, siteInfo.linkedin],
+        sameAs: [siteInfo.github, siteInfo.linkedin, siteInfo.orcid],
         address: { '@type': 'PostalAddress', addressLocality: 'Ho Chi Minh City', addressCountry: 'VN' },
         alumniOf: { '@type': 'CollegeOrUniversity', name: 'University of Science, VNU-HCM' },
-        knowsAbout: ['Multimodal Retrieval', 'Large Language Models', 'OCR', 'GraphRAG'],
+        knowsAbout: ['Information Retrieval', 'Multimodal AI', 'GraphRAG', 'OCR'],
       })}
     />
   </head>

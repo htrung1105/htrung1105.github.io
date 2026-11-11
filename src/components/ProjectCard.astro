@@ -1,51 +1,37 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
 
 interface Props { project: CollectionEntry<'projects'>; }
 const { project } = Astro.props;
-const { title, role, period, summary, tags, metrics } = project.data;
+const { title, role, period, summary, tags, cover, coverAlt } = project.data;
 ---
-<article class="card project" data-tags={tags.join(',')}>
-  <h2 class="title-h"><a href={`/work/${project.id}`} class="title">{title}</a></h2>
-  <p class="meta">{role} · {period}</p>
-  <p class="summary">{summary}</p>
-
-  {metrics.length > 0 && (
-    <div class="metrics">
-      {metrics.map((m) => (
-        <div><b>{m.value}</b><span>{m.label}</span></div>
-      ))}
-    </div>
-  )}
-
-  <div class="tags">
-    {tags.map((tag) => <span class="tag">{tag}</span>)}
+<article class="card lift project" data-tags={tags.join(',')}>
+  {cover && <Image src={cover} alt={coverAlt ?? ''} width={600} height={250} class="banner" />}
+  <div class="body">
+    <h3 class="title-h"><a href={`/work/${project.id}`} class="title">{title}</a></h3>
+    <p class="meta">{period} · {role}</p>
+    <p class="summary">{summary}</p>
+    <ul class="tags">{tags.map((tag) => <li class="tag">{tag}</li>)}</ul>
   </div>
 </article>
 
 <style>
-  .project { padding: var(--space-5); }
+  .project { position: relative; overflow: hidden; display: flex; flex-direction: column; }
+  .project[hidden] { display: none; }
+  .banner { display: block; width: 100%; aspect-ratio: 12 / 5; object-fit: cover; border-bottom: 1px solid var(--border); }
+  .body { padding: var(--space-4) var(--space-5) var(--space-5); display: flex; flex-direction: column; flex: 1; }
   .title-h { margin: 0; font-size: inherit; font-weight: inherit; }
   .title {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.015em;
     text-decoration: none;
     color: var(--text);
   }
-  .title:hover { color: var(--accent); }
-  .meta { margin: 2px 0 var(--space-3); font-size: 13px; color: var(--text-muted); }
-  .summary { margin: 0; color: var(--text-muted); }
-  .metrics { display: flex; flex-wrap: wrap; gap: var(--space-5); margin: var(--space-4) 0; }
-  .metrics b { display: block; font-size: 18px; font-weight: 800; color: var(--accent); }
-  .metrics span { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
-  .tags { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-3); }
-  .tag {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--accent);
-    background: var(--accent-soft);
-    border-radius: var(--radius-pill);
-    padding: 3px 9px;
-  }
+  /* whole card is clickable via the title link */
+  .title::after { content: ''; position: absolute; inset: 0; }
+  .project:hover .title { color: var(--accent); }
+  .meta { margin: 2px 0 var(--space-3); font-size: 12.5px; color: var(--text-muted); font-family: var(--font-mono); }
+  .summary { margin: 0 0 var(--space-4); font-size: 14.5px; color: var(--text-muted); flex: 1; }
 </style>

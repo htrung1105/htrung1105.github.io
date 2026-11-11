@@ -1,32 +1,30 @@
 ---
 title: TradingClaw
-role: AI / Backend Engineer (Group Project)
+role: AI / Backend Engineer (team project)
 period: Apr 2026 – Jul 2026
-summary: A FastAPI trading backend with Binance Testnet sandbox orders, a gateway to ML services, a Gemini tutor, and per-request LLM cost logging.
+summary: A trading-practice platform backend with Binance Testnet sandbox orders, a gateway to ML services, a Gemini-powered AI tutor and per-request LLM cost tracking.
 repo: https://github.com/ductai05/TradingClaw
-tags: [FastAPI, PostgreSQL, Binance Testnet, Gemini, FinBERT]
+tags: [FastAPI, PostgreSQL, Gemini API, FinBERT]
 metrics: []
 featured: true
 order: 2
+cover: ../../assets/banners/tradingclaw.svg
+coverAlt: Candlestick chart with a dashed forecast line
 ---
 
-## Problem
+## Overview
 
-Learning to trade on a live exchange puts real money at risk, and machine-learning
-signals are hard to judge without somewhere safe to act on them.
+Learning to trade on a live exchange puts real money at risk. TradingClaw lets users
+practise against Binance Testnet while machine-learning services and an AI tutor explain
+what is happening.
 
-## Approach
+## Highlights
 
-A FastAPI backend handles authentication and places sandbox orders through Binance
-Testnet. A gateway fronts the ML services (FinBERT for sentiment, Kronos for price
-prediction, Isolation Forest for anomaly detection) and keeps a history of their
-results. Gemini powers the AI trading tutor.
+- **Backend:** built the FastAPI backend: authentication, Binance Testnet sandbox orders,
+  and a gateway to the ML services (FinBERT, Kronos, Isolation Forest).
+- **LLM integration & monitoring:** integrated the Gemini API for the AI tutor and wrote
+  middleware that tracks tokens and cost for every LLM request.
 
-## Results
+## Stack
 
-Application data lives in Supabase PostgreSQL. Middleware logs the tokens and cost of
-every LLM request, so model spend is visible per call.
-
-## My role
-
-AI / Backend Engineer (Group Project). This was built as part of a team, not solo.
+FastAPI · PostgreSQL · Gemini API · Binance Testnet

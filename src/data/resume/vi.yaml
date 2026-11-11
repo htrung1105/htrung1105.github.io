@@ -1,86 +1,75 @@
 lang: vi
 label: Tiếng Việt
-headline: Kỹ sư AI · Nghiên cứu viên AI
+headline: AI Engineer
 summary: >-
-  Sinh viên năm cuối ngành Trí tuệ Nhân tạo, Trường ĐH Khoa học Tự nhiên – ĐHQG-HCM;
-  đồng tác giả bài báo Springer (SOICT 2025) về truy hồi video đa phương thức. Xây dựng
-  trọn vẹn hệ thống RAG/GraphRAG, LLM agent và OCR, từ thiết kế truy hồi, fine-tune mô
-  hình đến triển khai dịch vụ FastAPI. Giải Nhì ICPC miền Nam 2024; tiếng Anh B2 (VSTEP).
-  Mong muốn thực tập vị trí AI Engineer hoặc AI Research.
+  Sinh viên năm cuối ngành Trí tuệ Nhân tạo, đam mê Information Retrieval System,
+  Multimodal AI (NLP + CV), có kinh nghiệm xây dựng chatbot RAG/GraphRAG, hệ thống truy hồi
+  đa phương thức và pipeline OCR tài liệu. Đồng tác giả bài báo Springer (SOICT 2025) về
+  truy hồi sự kiện trong video. Mong muốn thực tập vị trí AI Engineer để xây dựng chatbot,
+  RAG và xử lý tài liệu cho sản phẩm thực tế.
 pdf: /files/resume.pdf
 sections:
   - heading: Học vấn
     kind: entries
     entries:
-      - title: Trường Đại học Khoa học Tự nhiên, ĐHQG-HCM
+      - title: Trường Đại học Khoa học tự nhiên, ĐHQG-HCM
         subtitle: Cử nhân Trí tuệ Nhân tạo
         date: 2023 – 2027 (dự kiến)
         meta: >-
-          GPA 3.19 / 4.0 · Môn học: Máy học, NLP, Khai thác dữ liệu, CTDL & giải thuật,
-          CNPM cho AI, DevOps.
-      - title: Trường THPT Chuyên Quang Trung, Bình Phước
-        subtitle: Chuyên Tin
-        date: 2020 – 2023
-        meta: Điểm TB 9.5 / 10 · Học bổng Vallet 2023 · Đội tuyển HSG Quốc gia môn Tin học.
+          GPA 7.74 / 10.0 · Đã học: ML, DL, NLP, Data Mining, DSA, OOP, OS, Computer
+          Networks, Databases, Software Engineering for AI, DevOps.
+  - heading: Đồ án
+    kind: entries
+    entries:
+      - title: Vietnamese Legal GraphRAG
+        subtitle: AI / Backend Engineer
+        date: 04/2026 – 07/2026
+        meta: Neo4j · Elasticsearch · LangGraph · FastAPI · github.com/ductai05/VietLegalGraphRAG
+        bullets:
+          - 'Chatbot: agent ReAct (LangGraph) tự gọi công cụ truy hồi, kiểm tra hiệu lực văn bản qua đồ thị và tìm link nguồn; chạy trên Open WebUI, trả lời kèm trích dẫn, từ chối khi thiếu căn cứ, phản hồi dưới 5 giây.'
+          - 'Pipeline dữ liệu: phụ trách tầng đồ thị tri thức, đưa 353K+ văn bản pháp luật vào Neo4j (7M+ node, 20M+ cạnh) với các quan hệ sửa đổi, bãi bỏ, hướng dẫn, dẫn chiếu.'
+          - 'Retrieval & evaluation: BM25 + dense kNN (vnlegal-lal) trên Elasticsearch, hợp nhất RRF và rerank bằng cross-encoder bge-reranker-v2-m3, tăng NDCG@10 thêm 12% và Recall@10 thêm 20%.'
+          - 'Xử lý tài liệu: tích hợp OCR Google Cloud Vision cho file scan và ảnh hợp đồng, để LLM đánh dấu điều khoản rủi ro.'
+          - 'API & vận hành: xây dựng API FastAPI, viết API contract cho frontend; thiết lập CI/CD với Docker và GitHub Actions.'
+      - title: TradingClaw
+        subtitle: AI / Backend Engineer
+        date: 04/2026 – 07/2026
+        meta: FastAPI · PostgreSQL · Gemini API · github.com/ductai05/TradingClaw
+        bullets:
+          - 'Xây dựng backend FastAPI: xác thực, lệnh sandbox Binance Testnet, gateway tới các dịch vụ ML (FinBERT, Kronos, Isolation Forest).'
+          - 'Tích hợp LLM & monitoring: tích hợp Gemini API cho tính năng AI tutor; viết middleware theo dõi token và chi phí của từng request LLM.'
+      - title: Sino-Nom Historical OCR
+        subtitle: ML Engineer
+        date: 11/2025 – 12/2025
+        meta: PaddlePaddle · PP-OCRv5 · github.com/ductai05/NLP-ChineseOCR
+        bullets:
+          - 'Fine-tune và đánh giá mô hình phát hiện chữ PP-OCRv5 (thuật toán DB) trên 3,411 trang Hán Nôm: tăng H-mean 30.2% (0.731 → 0.952), precision 0.966, recall 0.937 trên tập test NomNaOCR.'
   - heading: Nghiên cứu & Công bố
     kind: entries
     entries:
       - title: 'KPTER: K-Pointer for Temporal Event Retrieval'
-        subtitle: Kỹ sư hệ thống, Team WATLERE
+        subtitle: Đồng tác giả, Team WATLERE
         date: 07/2024 – 11/2025
         meta: >-
-          D. A. K. Dinh, D.-T. Dinh, L. H. T. Nguyen, T. N. Nguyen. In: Information and
-          Communication Technology (SOICT 2025), CCIS vol. 2913, pp. 304–318, Springer, 2027.
+          Duc Anh Khoa Dinh, Duc-Tai Dinh, Le Hoang Trung Nguyen, Thanh Nhan Nguyen (đóng góp
+          ngang nhau). SOICT 2025, Springer CCIS vol. 2913, pp. 304–318.
           doi:10.1007/978-981-92-2587-3_24
         bullets:
-          - Giải Best Presentation, SOICT 2025; xếp Top 12 / 80+ đội tại AI Challenge HCMC 2025.
-          - Xây dựng pipeline đánh chỉ mục đa phương thức trên 300 giờ video, kết hợp OCR, ASR, embedding và object detection.
-          - Xây dựng backend và API tìm kiếm cho thuật toán K-Pointer + WRRF của nhóm (+10% Recall@1).
-  - heading: Dự án
-    kind: entries
-    entries:
-      - title: Vietnamese Legal GraphRAG
-        subtitle: Kỹ sư AI (dự án nhóm)
-        date: 04/2026 – 07/2026
-        meta: Neo4j · LangGraph · BM25 + dense retrieval · FastAPI · github.com/ductai05/VietLegalGraphRAG
-        bullets:
-          - 'Phụ trách tầng đồ thị tri thức: đánh chỉ mục 353K+ văn bản pháp luật thành đồ thị Neo4j 7M+ node, 20M+ cạnh cho hỏi-đáp multi-hop.'
-          - Tăng NDCG@10 thêm 12% và Recall@10 thêm 20% nhờ kết hợp BM25 + dense (vnlegal-lal) qua RRF và cross-encoder reranker.
-          - Xây dựng dịch vụ hỏi-đáp agentic RAG (FastAPI) theo vai trò người dùng, kèm trích dẫn pháp lý, phản hồi dưới 5 giây.
-      - title: TradingClaw
-        subtitle: Kỹ sư AI / Backend (dự án nhóm)
-        date: 04/2026 – 07/2026
-        meta: FastAPI · Supabase PostgreSQL · Gemini · Binance Testnet · github.com/ductai05/TradingClaw
-        bullets:
-          - 'Xây dựng backend FastAPI: xác thực, lệnh sandbox Binance Testnet, gateway tới các dịch vụ ML (FinBERT, Kronos, Isolation Forest) và lịch sử kết quả ML.'
-          - Tích hợp Gemini cho AI tutor; viết middleware ghi log token và chi phí của từng request LLM.
-      - title: Sino-Nom Historical OCR
-        subtitle: ML Engineer (dự án nhóm)
-        date: 11/2025 – 12/2025
-        meta: PaddlePaddle · PP-OCRv5 · 2× NVIDIA T4 · github.com/ductai05/NLP-ChineseOCR
-        bullets:
-          - Fine-tune mô hình phát hiện chữ PP-OCRv5 (backbone PP-HGNetV2-B4, DB head) trên 3.4K+ ảnh, huấn luyện phân tán 2× T4.
-          - Tăng H-mean 30.2% (0.731 → 0.952) với precision 0.966 trên tập test NomNaOCR; phụ trách đánh giá và phân tích lỗi.
+          - Giải Best Presentation, SOICT 2025; Top 12 / 80+ đội tại AI Challenge HCMC 2025, vòng sơ loại đạt 82/88.
+          - 'Hệ thống truy hồi video đa phương thức cho KIS, VQA và TRAKE: pipeline trích xuất CLIP + BEiT-3, OCR (PaddleOCR, VietOCR, Qwen-2.5-VL), ASR (Whisper) và object detection (YOLO-World), rồi đánh chỉ mục vector vào Milvus và văn bản OCR/ASR vào Elasticsearch để truy vấn.'
+          - 'Xếp hạng: hợp nhất kết quả đa nguồn bằng WRRF; thuật toán K-Pointer tìm chuỗi sự kiện đúng thứ tự thời gian với độ phức tạp O(KN), thay cho K vòng lặp lồng nhau.'
   - heading: Kỹ năng
     kind: skills
     skills:
       - group: Lập trình
-        items: Python, C/C++, SQL, TypeScript
-      - group: AI & ML
-        items: PyTorch, Hugging Face Transformers, PaddlePaddle, scikit-learn, NumPy, Pandas
-      - group: LLM & RAG
-        items: LangChain, LangGraph, GraphRAG, vLLM, hybrid retrieval (BM25 + dense), cross-encoder reranking
-      - group: Backend
-        items: FastAPI, NestJS, REST APIs
-      - group: Dữ liệu & Tìm kiếm
-        items: PostgreSQL, Neo4j, Elasticsearch, Supabase
-      - group: DevOps
-        items: Docker, Kubernetes, GitHub Actions, Git, Linux
-      - group: Ngoại ngữ
-        items: Tiếng Anh B2 (VSTEP)
+        items: Python, C/C++, SQL
+      - group: AI & LLM
+        items: PyTorch, OCR, ASR, LangChain, LangGraph, GraphRAG
+      - group: Backend & DevOps
+        items: FastAPI, PostgreSQL, Neo4j, Elasticsearch, Docker, GitHub Actions, Git, Linux
   - heading: Giải thưởng & Chứng chỉ
     kind: list
     list:
       - Giải Nhì — ICPC khu vực miền Nam 2024; thí sinh vòng Quốc gia ICPC 2024.
       - Giải Khuyến khích — HSG Quốc gia môn Tin học (VOI) 2023.
-      - 'Chứng chỉ (DeepLearning.AI, 2026): Agentic AI · Data Analytics Foundations · Linear Algebra for ML.'
+      - 'Chứng chỉ: Tiếng Anh B2 (VSTEP) · DeepLearning.AI (2026): Agentic AI, Data Analytics Foundations, Linear Algebra for ML.'

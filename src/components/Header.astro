@@ -1,22 +1,25 @@
 ---
+import { Image } from 'astro:assets';
 import ThemeToggle from './ThemeToggle.astro';
+import portrait from '../assets/portrait.jpg';
 
 const links = [
-  { href: '/', label: 'Home' },
-  { href: '/work', label: 'Work' },
+  { href: '/work', label: 'Projects' },
   { href: '/publications', label: 'Publications' },
-  { href: '/resume', label: 'Résumé' },
+  { href: '/resume', label: 'CV' },
   { href: '/blog', label: 'Blog' },
-  { href: '/gallery', label: 'Gallery' },
   { href: '/contact', label: 'Contact' },
 ];
 
 const path = Astro.url.pathname;
-const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
+const isActive = (href: string) => path.startsWith(href);
 ---
 <header>
   <div class="container bar">
-    <a class="brand" href="/">HT</a>
+    <a class="brand" href="/" aria-label="Home">
+      <Image src={portrait} alt="" width={56} height={56} class="avatar" loading="eager" />
+      <span>htrung1105</span>
+    </a>
     <nav aria-label="Main">
       <ul>
         {links.map((link) => (
@@ -37,44 +40,61 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWit
     position: sticky;
     top: 0;
     z-index: 10;
-    background: color-mix(in srgb, var(--bg) 88%, transparent);
-    backdrop-filter: blur(8px);
+    background: color-mix(in srgb, var(--bg) 80%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
   }
   .bar {
     display: flex;
     align-items: center;
-    gap: var(--space-4);
+    gap: var(--space-3);
     height: 58px;
   }
   .brand {
-    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-weight: 700;
     font-size: 15px;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
     text-decoration: none;
-    color: var(--accent);
+    color: var(--text);
+    flex: none;
   }
-  nav { flex: 1; overflow-x: auto; }
+  .avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+  }
+  nav { flex: 1; overflow-x: auto; scrollbar-width: none; }
   ul {
     display: flex;
-    gap: var(--space-1);
+    justify-content: flex-end;
+    gap: 2px;
     list-style: none;
     margin: 0;
     padding: 0;
   }
   ul a {
     display: block;
-    padding: 6px 11px;
-    font-size: 13px;
-    font-weight: 600;
+    padding: 6px 10px;
+    font-size: 13.5px;
+    font-weight: 500;
     color: var(--text-muted);
     text-decoration: none;
-    border-radius: var(--radius-pill);
+    border-radius: var(--radius-sm);
     white-space: nowrap;
   }
   ul a:hover { color: var(--text); }
-  ul a.on {
-    color: var(--accent);
-    background: var(--accent-soft);
+  ul a.on { color: var(--text); background: var(--accent-soft); }
+
+  @media (max-width: 640px) {
+    .bar { flex-wrap: wrap; height: auto; padding-top: var(--space-2); padding-bottom: var(--space-1); justify-content: space-between; }
+    nav { order: 3; flex-basis: 100%; }
+    ul { justify-content: space-between; }
+    ul a { padding: 6px 8px; font-size: 13px; }
   }
 </style>

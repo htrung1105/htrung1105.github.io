@@ -7,16 +7,18 @@ const year = new Date().getFullYear();
     <span>© {year} {site.name}</span>
     <span class="links">
       <a href={`mailto:${site.email}`}>Email</a>
-      <a href={site.github}>GitHub</a>
-      <a href={site.linkedin}>LinkedIn</a>
+      <a href={site.github} rel="me">GitHub</a>
+      <a href={site.linkedin} rel="me">LinkedIn</a>
+      <a href={site.orcid} rel="me">ORCID</a>
       <a href="/rss.xml">RSS</a>
     </span>
   </div>
+  <p class="container credit">Design inspired by <a href="https://ciel.is-a.dev/">ciel.is-a.dev</a>. Built with <a href="https://astro.build">Astro</a>.</p>
 </footer>
 
 <style>
   footer {
-    margin-top: var(--space-8);
+    margin-top: var(--space-7);
     padding: var(--space-5) 0;
     border-top: 1px solid var(--border);
     font-size: 13px;
@@ -28,5 +30,8 @@ const year = new Date().getFullYear();
     gap: var(--space-3);
     justify-content: space-between;
   }
-  .links { display: flex; gap: var(--space-4); }
+  .links { display: flex; flex-wrap: wrap; gap: var(--space-4); }
+  .links a, .credit a { color: var(--text-muted); }
+  .links a:hover, .credit a:hover { color: var(--accent); }
+  .credit { margin-top: var(--space-2); margin-bottom: 0; font-size: 12px; }
 </style>

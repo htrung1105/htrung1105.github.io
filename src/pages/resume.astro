@@ -8,7 +8,7 @@ const ordered = ['en', 'vi']
   .map((lang) => entries.find((e) => e.data.lang === lang))
   .filter((e): e is NonNullable<typeof e> => Boolean(e));
 ---
-<PageLayout title={`Résumé — ${site.name}`} description={`Full résumé of ${site.name}, AI Engineer and AI Researcher.`} sidebar={false}>
+<PageLayout title={`Résumé — ${site.name}`} description={`Full résumé of ${site.name}, AI Engineer and AI Researcher.`}>
   <div class="head">
     <h1>Résumé</h1>
     <div class="controls">

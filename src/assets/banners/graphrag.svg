@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" width="1200" height="500">
+  <defs><radialGradient id="g" cx="70%" cy="40%" r="70%"><stop offset="0" stop-color="#123047"/><stop offset="1" stop-color="#070b12"/></radialGradient></defs>
+  <rect width="1200" height="500" fill="url(#g)"/>
+  <g stroke="#67e8f9" stroke-opacity=".35" stroke-width="1.5" fill="none">
+    <path d="M180 120L360 210L560 140L760 250L960 160L1080 300M360 210L420 370L640 330L760 250L880 400M560 140L640 330M960 160L880 400M180 120L240 300L420 370M1080 300L880 400"/>
+  </g>
+  <g fill="#67e8f9"><circle cx="180" cy="120" r="7"/><circle cx="360" cy="210" r="10"/><circle cx="560" cy="140" r="8"/><circle cx="760" cy="250" r="14"/><circle cx="960" cy="160" r="8"/><circle cx="1080" cy="300" r="7"/><circle cx="420" cy="370" r="8"/><circle cx="640" cy="330" r="10"/><circle cx="880" cy="400" r="8"/><circle cx="240" cy="300" r="6"/></g>
+  <circle cx="760" cy="250" r="34" fill="none" stroke="#67e8f9" stroke-opacity=".25" stroke-width="2"/>
+  <text x="60" y="450" fill="#e6edf5" fill-opacity=".9" font-family="ui-monospace,Consolas,monospace" font-size="30">§ amends · repeals · guides · cites</text>
+</svg>
