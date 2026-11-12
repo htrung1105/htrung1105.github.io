@@ -1,31 +1,30 @@
 ---
 title: TradingClaw
-role: AI / Backend Engineer (Group Project)
-period: Apr 2026 – Present
-summary: A LangGraph multi-agent system that searches the live web, analyses market behaviour, and explains its predictions.
+role: AI / Backend Engineer (team project)
+period: Apr 2026 – Jul 2026
+summary: A trading-practice platform backend with Binance Testnet sandbox orders, a gateway to ML services, a Gemini-powered AI tutor and per-request LLM cost tracking.
 repo: https://github.com/ductai05/TradingClaw
-tags: [LangGraph, Multi-agent, XAI, PostgreSQL, FastAPI]
+tags: [FastAPI, PostgreSQL, Gemini API, FinBERT]
 metrics: []
 featured: true
 order: 2
+cover: ../../assets/banners/tradingclaw.svg
+coverAlt: Candlestick chart with a dashed forecast line
 ---
 
-## Problem
+## Overview
 
-Trading models predict well and explain nothing. A number with no reasoning behind it is
-not something anyone should act on.
+Learning to trade on a live exchange puts real money at risk. TradingClaw lets users
+practise against Binance Testnet while machine-learning services and an AI tutor explain
+what is happening.
 
-## Approach
+## Highlights
 
-Specialised LangGraph agents split the work: one searches the live web, another analyses
-market behaviour. XAI techniques turn the resulting black-box predictions into stated
-reasons a person can weigh.
+- **Backend:** built the FastAPI backend: authentication, Binance Testnet sandbox orders,
+  and a gateway to the ML services (FinBERT, Kronos, Isolation Forest).
+- **LLM integration & monitoring:** integrated the Gemini API for the AI tutor and wrote
+  middleware that tracks tokens and cost for every LLM request.
 
-## Results
+## Stack
 
-FastAPI microservices backed by PostgreSQL handle high-frequency data streams, user
-state, and per-call API cost metrics.
-
-## My role
-
-AI / Backend Engineer (Group Project). This was built as part of a team, not solo.
+FastAPI · PostgreSQL · Gemini API · Binance Testnet

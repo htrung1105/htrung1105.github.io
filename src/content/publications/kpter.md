@@ -1,22 +1,23 @@
 ---
 title: 'KPTER: K-Pointer for Temporal Event Retrieval'
-venue: SOICT 2025
+venue: SOICT 2025 · Springer CCIS vol. 2913, pp. 304–318
 year: 2025
 authors:
-  - Nguyen Le Hoang Trung et al.
+  - Duc Anh Khoa Dinh
+  - Duc-Tai Dinh
+  - Le Hoang Trung Nguyen
+  - Thanh Nhan Nguyen
 award: Best Presentation Award
-abstract: A sequential re-ranking algorithm for temporal event retrieval, paired with Weighted Reciprocal Rank Fusion, evaluated within a zero-shot multimodal retrieval framework combining OCR, ASR, semantic embeddings, and open-vocabulary object detection.
+abstract: A multimodal video retrieval system for KIS, VQA and TRAKE that fuses CLIP + BEiT-3 embeddings, OCR, ASR and open-vocabulary object detection with Weighted Reciprocal Rank Fusion, and finds time-ordered event sequences with a K-Pointer algorithm in O(KN).
+pdf: https://doi.org/10.1007/978-981-92-2587-3_24
 ---
 
-KPTER addresses temporal alignment in video event retrieval: given a natural-language
-description of an event, find not just the right video but the right moment in it.
+Authors contributed equally.
 
-The K-Pointer algorithm re-ranks candidates sequentially rather than scoring them
-independently, and Weighted Reciprocal Rank Fusion (WRRF) combines evidence across
-modalities without requiring a trained fusion model.
+The extraction pipeline combines CLIP + BEiT-3, OCR (PaddleOCR, VietOCR, Qwen-2.5-VL),
+ASR (Whisper) and object detection (YOLO-World). Vectors are indexed in Milvus and OCR/ASR
+text in Elasticsearch. Results from the different sources are fused with WRRF, and the
+K-Pointer algorithm finds time-ordered event sequences in O(KN) instead of K nested loops.
 
-The surrounding pipeline is zero-shot end to end, integrating OCR, ASR, semantic
-embeddings, and open-vocabulary object detection.
-
-Presented at SOICT 2025, where it received the Best Presentation Award. The same system
-placed in the top 12 of more than 80 teams at AI Challenge HCMC 2025.
+The same system placed in the top 12 of more than 80 teams at AI Challenge HCMC 2025, with
+a preliminary score of 82/88. Read the [project write-up](/work/kpter).

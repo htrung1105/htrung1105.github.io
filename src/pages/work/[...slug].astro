@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import type { GetStaticPaths } from 'astro';
+import { Image } from 'astro:assets';
 import PageLayout from '../../layouts/PageLayout.astro';
 import '../../styles/prose.css';
 
@@ -17,54 +18,60 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 const { project } = Astro.props;
 const { Content } = await render(project);
-const { title, role, period, summary, repo, demo, tags, metrics } = project.data;
+const { title, role, period, summary, repo, demo, paper, tags, metrics, cover, coverAlt } = project.data;
 ---
-<PageLayout title={`${title} — Nguyen Le Hoang Trung`} description={summary} sidebar={false}>
-  <a class="back" href="/work">← Work</a>
+<PageLayout title={`${title} — Nguyen Le Hoang Trung`} description={summary}>
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a><span aria-hidden="true">›</span><a href="/work">Projects</a><span aria-hidden="true">›</span><span aria-current="page">{title}</span>
+  </nav>
 
   <header class="head">
     <h1>{title}</h1>
-    <p class="meta">{role} · {period}</p>
+    <p class="summary">{summary}</p>
+    <p class="meta">{period} · {role}</p>
+    <ul class="tags">{tags.map((tag) => <li class="tag">{tag}</li>)}</ul>
     <div class="links">
-      {repo && <a href={repo}>Repository</a>}
-      {demo && <a href={demo}>Live demo</a>}
+      {repo && <a class="btn" href={repo}>View repository</a>}
+      {paper && <a class="btn" href={paper}>Read the paper</a>}
+      {demo && <a class="btn" href={demo}>Live demo</a>}
     </div>
-    <div class="tags">{tags.map((tag) => <span class="tag">{tag}</span>)}</div>
   </header>
 
+  {cover && <Image src={cover} alt={coverAlt ?? ''} width={960} height={400} class="card banner" loading="eager" />}
+
   {metrics.length > 0 && (
-    <div class="metrics card">
+    <ul class="metrics">
       {metrics.map((m) => (
-        <div><b>{m.value}</b><span>{m.label}</span></div>
+        <li class="card"><b>{m.value}</b><span>{m.label}</span></li>
       ))}
-    </div>
+    </ul>
   )}
 
-  <div class="prose"><Content /></div>
+  <article class="prose"><Content /></article>
 </PageLayout>
 
 <style>
-  .back { font-size: 13px; font-weight: 600; text-decoration: none; }
-  .head { margin: var(--space-4) 0 var(--space-6); }
-  h1 { margin: 0; font-size: clamp(28px, 5vw, 38px); font-weight: 800; letter-spacing: -0.03em; }
-  .meta { margin: var(--space-2) 0 0; color: var(--text-muted); }
-  .links { display: flex; gap: var(--space-4); margin-top: var(--space-3); font-size: 14px; font-weight: 600; }
-  .tags { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-3); }
-  .tag {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--accent);
-    background: var(--accent-soft);
-    border-radius: var(--radius-pill);
-    padding: 3px 9px;
-  }
+  .crumbs { display: flex; flex-wrap: wrap; gap: var(--space-2); font-size: 13px; color: var(--text-muted); }
+  .crumbs a { color: var(--text-muted); text-decoration: none; }
+  .crumbs a:hover { color: var(--accent); }
+  .crumbs [aria-current] { color: var(--text); }
+  .head { text-align: center; margin: var(--space-7) auto var(--space-6); max-width: 720px; }
+  h1 { margin: 0; font-size: clamp(28px, 5.5vw, 42px); font-weight: 700; letter-spacing: -0.035em; line-height: 1.15; }
+  .summary { margin: var(--space-4) 0 0; color: var(--text-muted); }
+  .meta { margin: var(--space-3) 0; font-size: 13px; color: var(--text-muted); font-family: var(--font-mono); }
+  .tags { justify-content: center; }
+  .links { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-3); margin-top: var(--space-5); }
+  .banner { display: block; width: 100%; aspect-ratio: 12 / 5; object-fit: cover; padding: 0; overflow: hidden; }
   .metrics {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-6);
-    padding: var(--space-4) var(--space-5);
-    margin-bottom: var(--space-6);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: var(--space-3);
+    list-style: none;
+    margin: var(--space-4) 0 var(--space-6);
+    padding: 0;
   }
-  .metrics b { display: block; font-size: 22px; font-weight: 800; color: var(--accent); }
-  .metrics span { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
+  .metrics li { padding: var(--space-3) var(--space-4); }
+  .metrics b { display: block; font-size: 20px; font-weight: 700; letter-spacing: -0.02em; color: var(--accent); }
+  .metrics span { font-size: 12.5px; color: var(--text-muted); }
+  .prose { margin: var(--space-6) auto 0; }
 </style>

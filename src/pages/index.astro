@@ -1,56 +1,98 @@
 ---
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 import PageLayout from '../layouts/PageLayout.astro';
-import StatTile from '../components/StatTile.astro';
-import EntryTile from '../components/EntryTile.astro';
+import ProjectCard from '../components/ProjectCard.astro';
 import { site } from '../config/site';
+import portrait from '../assets/portrait.jpg';
 
-const featured = (await getCollection('projects', ({ data }) => data.featured)).sort(
+const projects = (await getCollection('projects', ({ data }) => data.featured)).sort(
   (a, b) => a.data.order - b.data.order,
 );
-
+const publications = (await getCollection('publications')).sort((a, b) => b.data.year - a.data.year);
 const latest = (await getCollection('posts', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);
 
-const fmt = (d: Date) =>
-  d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+const fmt = (d: Date) => d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
 ---
 <PageLayout title={`${site.name} — ${site.role}`} description={site.blurb}>
-  <section class="hero">
-    <h1>
-      {site.displayName}<br />
-      <em>{site.tagline}</em>
-    </h1>
-    <p class="blurb">{site.blurb}</p>
-    <div class="stats">
-      {site.stats.map((s) => <StatTile value={s.value} label={s.label} />)}
+  <div class="bento">
+    <section class="card hero" aria-labelledby="hi">
+      <h1 id="hi">{site.name}</h1>
+      <p class="role">{site.role} · Ho Chi Minh City · Information Retrieval & Multimodal AI</p>
+      <p class="blurb">{site.blurb}</p>
+      <ul class="badges">
+        {site.badges.map((b) => <li>{b}</li>)}
+      </ul>
+      <div class="cta">
+        <a class="btn primary" href="/files/resume.pdf" download>Download CV</a>
+        <a class="btn" href="/work">View projects</a>
+      </div>
+    </section>
+
+    <aside class="card profile" aria-label="Contact">
+      <Image src={portrait} alt={`Portrait of ${site.name}`} width={240} height={240} class="portrait" loading="eager" fetchpriority="high" />
+      <ul class="contacts">
+        <li><a href={`mailto:${site.email}`}>Email</a></li>
+        <li><a href={site.github} rel="me">GitHub</a></li>
+        <li><a href={site.linkedin} rel="me">LinkedIn</a></li>
+        <li><a href={site.orcid} rel="me">ORCID</a></li>
+      </ul>
+    </aside>
+
+    <ul class="stats">
+      {site.stats.map((s) => (
+        <li class="card"><b>{s.value}</b><span>{s.label}</span></li>
+      ))}
+    </ul>
+  </div>
+
+  <section>
+    <h2 class="eyebrow">projects</h2>
+    <div class="grid">
+      {projects.map((p) => <ProjectCard project={p} />)}
     </div>
   </section>
 
   <section>
-    <h2 class="eyebrow">Go to</h2>
-    <div class="tiles">
-      <EntryTile href="/work" title="Work" blurb="Research & projects" />
-      <EntryTile href="/resume" title="Résumé" blurb="EN / VI · PDF" />
-      <EntryTile href="/blog" title="Blog" blurb="Notes & papers" />
-    </div>
+    <h2 class="eyebrow">publication</h2>
+    {publications.map((pub) => (
+      <article class="card pub">
+        <h3><a href="/publications">{pub.data.title}</a></h3>
+        <p class="muted">{pub.data.authors.join(', ')}</p>
+        <p class="muted">{pub.data.venue}{pub.data.award && <> · <span class="award">{pub.data.award}</span></>}</p>
+        {pub.data.pdf && <a class="btn" href={pub.data.pdf}>Paper (DOI)</a>}
+      </article>
+    ))}
   </section>
 
-  {featured.length > 0 && (
+  <div class="two">
     <section>
-      <h2 class="eyebrow">Featured</h2>
-      <div class="tiles two">
-        {featured.map((p) => (
-          <EntryTile href={`/work/${p.id}`} title={p.data.title} blurb={p.data.summary} />
+      <h2 class="eyebrow">awards</h2>
+      <ul class="card list">
+        {site.awards.map((a) => (
+          <li>
+            <b>{a.title}</b> — {a.org}
+            {a.note && <span class="muted block">{a.note}</span>}
+          </li>
         ))}
+      </ul>
+    </section>
+    <section>
+      <h2 class="eyebrow">education</h2>
+      <div class="card list edu">
+        <b>University of Science, VNU-HCM</b>
+        <span class="muted block">B.Sc. in Artificial Intelligence · 2023 – 2027 (expected)</span>
+        <span class="muted block">GPA 3.19 / 4.0</span>
+        <p class="muted">Certifications: English B2 (VSTEP) · DeepLearning.AI (2026): Agentic AI, Data Analytics Foundations, Linear Algebra for ML.</p>
       </div>
     </section>
-  )}
+  </div>
 
   {latest.length > 0 && (
     <section>
-      <h2 class="eyebrow">Latest writing</h2>
+      <h2 class="eyebrow">recent posts</h2>
       <ul class="posts">
         {latest.map((post) => (
           <li>
@@ -65,44 +107,84 @@ const fmt = (d: Date) =>
 
 <style>
   section { margin-bottom: var(--space-7); }
+  .bento {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 220px;
+    gap: var(--space-4);
+    margin-bottom: var(--space-7);
+  }
+  .hero { padding: var(--space-6); margin: 0; }
   h1 {
     margin: 0;
-    font-size: clamp(32px, 6vw, 46px);
-    font-weight: 800;
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 700;
     letter-spacing: -0.035em;
-    line-height: 1.05;
+    line-height: 1.1;
   }
-  h1 em { font-style: normal; color: var(--accent); }
-  .blurb {
-    max-width: 56ch;
-    margin: var(--space-4) 0 0;
-    color: var(--text-muted);
+  .role { margin: var(--space-2) 0 0; font-size: 14px; color: var(--accent); font-family: var(--font-mono); }
+  .blurb { max-width: 60ch; margin: var(--space-4) 0 0; color: var(--text-muted); }
+  .badges { display: flex; flex-wrap: wrap; gap: var(--space-2); list-style: none; margin: var(--space-4) 0 0; padding: 0; }
+  .badges li {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    background: var(--accent-soft);
+    color: var(--text);
   }
-  .stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-6);
-    margin-top: var(--space-5);
+  .cta { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-5); }
+
+  .profile { padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-3); }
+  .portrait { width: 100%; aspect-ratio: 1; object-fit: cover; object-position: top; border-radius: var(--radius-md); }
+  .contacts { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); }
+  .contacts a {
+    display: block;
+    text-align: center;
+    padding: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
   }
-  .tiles {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-3);
-  }
-  .tiles.two { grid-template-columns: repeat(2, 1fr); }
+  .contacts a:hover { border-color: var(--accent); color: var(--accent); }
+
+  .stats { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); list-style: none; margin: 0; padding: 0; }
+  .stats li { padding: var(--space-4) var(--space-5); }
+  .stats b { display: block; font-size: 26px; font-weight: 700; letter-spacing: -0.03em; color: var(--accent); line-height: 1.2; }
+  .stats span { font-size: 13px; color: var(--text-muted); }
+
+  .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); }
+
+  .pub { padding: var(--space-5); }
+  .pub h3 { margin: 0 0 var(--space-2); font-size: 17px; letter-spacing: -0.01em; }
+  .pub h3 a { color: var(--text); text-decoration: none; }
+  .pub h3 a:hover { color: var(--accent); }
+  .pub p { margin: 0 0 var(--space-1); font-size: 14px; }
+  .pub .btn { margin-top: var(--space-3); }
+  .award { color: var(--accent); font-weight: 600; }
+
+  .muted { color: var(--text-muted); }
+  .block { display: block; font-size: 13.5px; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+  .list { list-style: none; margin: 0; padding: var(--space-4) var(--space-5); font-size: 14.5px; }
+  .list li + li { margin-top: var(--space-3); }
+  .edu p { margin: var(--space-3) 0 0; font-size: 13.5px; }
+
   .posts { list-style: none; margin: 0; padding: 0; }
-  .posts li {
-    display: flex;
-    justify-content: space-between;
-    gap: var(--space-4);
-    padding: var(--space-3) 0;
-    border-bottom: 1px solid var(--border);
-  }
+  .posts li { display: flex; justify-content: space-between; gap: var(--space-4); padding: var(--space-3) 0; border-bottom: 1px solid var(--border); }
   .posts a { font-weight: 600; text-decoration: none; color: var(--text); }
   .posts a:hover { color: var(--accent); }
-  .posts time { flex: none; font-size: 13px; color: var(--text-muted); }
+  .posts time { flex: none; font-size: 13px; color: var(--text-muted); font-family: var(--font-mono); }
 
-  @media (max-width: 640px) {
-    .tiles, .tiles.two { grid-template-columns: 1fr; }
+  @media (max-width: 760px) {
+    .bento { grid-template-columns: 1fr; }
+    .hero { padding: var(--space-5); }
+    .profile { flex-direction: row; align-items: center; }
+    .portrait { width: 96px; flex: none; }
+    .contacts { flex: 1; }
+    .stats, .grid, .two { grid-template-columns: 1fr; }
+    .stats { gap: var(--space-3); }
   }
 </style>
