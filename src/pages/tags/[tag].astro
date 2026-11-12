@@ -13,7 +13,7 @@ export const getStaticPaths = (async () => {
 type Tag = Awaited<ReturnType<typeof getTags>>[number];
 const { tag } = Astro.props as { tag: Tag };
 ---
-<PageLayout title={`#${tag.name} — Nguyen Le Hoang Trung`} description={`Projects and posts tagged ${tag.name}.`}>
+<PageLayout title={`#${tag.name} — Trung Le-Hoang Nguyen`} description={`Projects and posts tagged ${tag.name}.`}>
   <nav class="crumbs" aria-label="Breadcrumb">
     <a href="/">Home</a><span aria-hidden="true">›</span><a href="/tags">Tags</a><span aria-hidden="true">›</span><span aria-current="page">{tag.name}</span>
   </nav>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 580" width="1200" height="580" font-family="ui-sans-serif,Segoe UI,Arial,sans-serif">
+  <rect width="1200" height="580" fill="#0b1018"/>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#a78bfa"/></marker></defs>
+  <text x="40" y="46" fill="#e6edf5" font-size="19" font-weight="600">Query (K = 3):  "a man opens a door"  →  "he sits at a desk"  →  "he turns on a lamp"</text>
+  <path d="M200 450H1150" stroke="#2a3a50" stroke-width="2"/><path d="M1135 442L1150 450L1135 458" fill="none" stroke="#2a3a50" stroke-width="2"/>
+  <text x="1150" y="480" fill="#8c99ab" font-size="15" text-anchor="end">time within one video →</text>
+  <g font-size="16" fill="#e6edf5" font-weight="600"><text x="40" y="136">Event 1</text><text x="40" y="256">Event 2</text><text x="40" y="376">Event 3</text></g>
+  <g font-size="13" fill="#8c99ab"><text x="40" y="156">candidate moments</text><text x="40" y="276">candidate moments</text><text x="40" y="396">candidate moments</text></g>
+  <g fill="#232a44" stroke="#3b4566" stroke-width="2">
+    <rect x="230" y="110" width="70" height="50" rx="6"/><rect x="520" y="110" width="70" height="50" rx="6"/><rect x="900" y="110" width="70" height="50" rx="6"/>
+    <rect x="360" y="230" width="70" height="50" rx="6"/><rect x="700" y="230" width="70" height="50" rx="6"/><rect x="1020" y="230" width="70" height="50" rx="6"/>
+    <rect x="270" y="350" width="70" height="50" rx="6"/><rect x="820" y="350" width="70" height="50" rx="6"/><rect x="1060" y="350" width="70" height="50" rx="6"/>
+  </g>
+  <g fill="none" stroke="#a78bfa" stroke-width="4"><rect x="520" y="110" width="70" height="50" rx="6"/><rect x="700" y="230" width="70" height="50" rx="6"/><rect x="820" y="350" width="70" height="50" rx="6"/></g>
+  <g stroke="#a78bfa" stroke-width="3" fill="none" marker-end="url(#a)"><path d="M590 160C640 190 660 210 696 238"/><path d="M770 280C790 310 800 330 816 350"/></g>
+  <g font-family="ui-monospace,Consolas,monospace" font-size="16" fill="#a78bfa"><text x="545" y="100">p₁</text><text x="725" y="220">p₂</text><text x="845" y="340">p₃</text></g>
+  <text x="40" y="526" fill="#8c99ab" font-size="16">Each pointer only moves forward in time, so each candidate list is walked once:</text>
+  <text x="40" y="556" fill="#a78bfa" font-size="17" font-family="ui-monospace,Consolas,monospace">O(K·N) instead of K nested loops over every combination (N^K)</text>
+</svg>

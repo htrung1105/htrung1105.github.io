@@ -18,6 +18,10 @@ sections:
         meta: >-
           GPA 7.74 / 10.0 · Đã học: ML, DL, NLP, Data Mining, DSA, OOP, OS, Computer
           Networks, Databases, Software Engineering for AI, DevOps.
+      - title: Trường THPT Chuyên Quang Trung
+        subtitle: Lớp Toán-Tin
+        date: 2020 – 2023
+        meta: GPA 9.50 / 10 · Đội tuyển HSG Quốc gia môn Tin học.
   - heading: Đồ án
     kind: entries
     entries:

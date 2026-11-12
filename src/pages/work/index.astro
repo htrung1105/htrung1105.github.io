@@ -7,7 +7,7 @@ import TagFilter from '../../components/TagFilter.astro';
 const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
 const tags = [...new Set(projects.flatMap((p) => p.data.tags))].sort();
 ---
-<PageLayout title="Projects — Nguyen Le Hoang Trung" description="Projects in information retrieval, GraphRAG, multimodal video retrieval and OCR.">
+<PageLayout title="Projects — Trung Le-Hoang Nguyen" description="Projects in information retrieval, GraphRAG, multimodal video retrieval and OCR.">
   <h1 class="page-title">Projects</h1>
   <p class="lede">Retrieval, GraphRAG, multimodal video search and document OCR. All team projects; each page says what I built.</p>
 

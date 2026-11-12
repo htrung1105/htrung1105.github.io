@@ -16,8 +16,12 @@ sections:
         subtitle: B.Sc. in Artificial Intelligence
         date: 2023 – 2027 (expected)
         meta: >-
-          GPA 3.19 / 4.0 · Coursework: ML, DL, NLP, Data Mining, DSA, OOP, OS, Computer
+          GPA 7.74 / 10.0 · Coursework: ML, DL, NLP, Data Mining, DSA, OOP, OS, Computer
           Networks, Databases, Software Engineering for AI, DevOps.
+      - title: Quang Trung High School for the Gifted
+        subtitle: Mathematics-Informatics Class
+        date: 2020 – 2023
+        meta: GPA 9.50 / 10 · National Informatics Team.
   - heading: Projects
     kind: entries
     entries:
