@@ -13,7 +13,7 @@ export const site = {
   url: 'https://htrung1105.github.io',
   blurb:
     'Final-year Artificial Intelligence student at VNU-HCM University of Science, passionate about Information Retrieval and Multimodal AI (NLP + CV). I have experience in building RAG/GraphRAG chatbots, multimodal retrieval and document OCR pipelines.',
-  badge: 'Undergraduate B.Sc. AI @ HCMUS',
+  status: 'Undergraduate B.Sc. AI @ VNU-HCM University of Science',
   awards: [
     { title: 'Best Presentation Award', org: 'SOICT 2025', note: 'KPTER: K-Pointer for Temporal Event Retrieval' },
     { title: 'Top 12 / 80+ teams', org: 'AI Challenge HCMC 2025', note: 'Preliminary score 82/88' },
