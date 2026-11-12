@@ -41,12 +41,12 @@ const socials = [
       <h1 id="hi">{site.name}</h1>
       <p class="role">{site.role} · HCMC · Multimodal Agentic RAG &amp; LLM &amp; AI systems</p>
       <p class="blurb">{site.blurb}</p>
-      <div class="badge-row">
+      <div class="hero-foot">
         <span class="badge">{site.badge}</span>
-        <a class="btn primary" href="/files/resume.pdf" download>Download CV</a>
-      </div>
-      <div class="cta">
-        <a class="btn" href="/resume">View Résumé</a>
+        <div class="cta">
+          <a class="btn" href="/resume">View Résumé</a>
+          <a class="btn primary" href="/files/resume.pdf" download>Download CV</a>
+        </div>
       </div>
     </section>
 
@@ -62,7 +62,12 @@ const socials = [
             </li>
           ))}
         </ul>
-        <a class="email" href={`mailto:${site.email}`}>{site.email.split('@')[0]}<wbr />@{site.email.split('@')[1]}</a>
+        <dl class="info">
+          <dt>Email</dt>
+          <dd><a href={`mailto:${site.email}`}>{site.email.split('@')[0]}<wbr />@{site.email.split('@')[1]}</a></dd>
+          <dt>Location</dt>
+          <dd>{site.location}</dd>
+        </dl>
       </div>
     </aside>
   </div>
@@ -151,7 +156,7 @@ const socials = [
     gap: var(--space-4);
     margin-bottom: var(--space-7);
   }
-  .hero { padding: var(--space-6); margin: 0; }
+  .hero { padding: var(--space-6); margin: 0; display: flex; flex-direction: column; }
   h1 {
     margin: 0;
     font-size: clamp(28px, 5vw, 40px);
@@ -161,7 +166,18 @@ const socials = [
   }
   .role { margin: var(--space-2) 0 0; font-size: 14px; color: var(--accent); font-family: var(--font-mono); }
   .blurb { max-width: 60ch; margin: var(--space-4) 0 0; color: var(--text-muted); }
-  .badge-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); margin-top: var(--space-5); }
+  /* pinned to the card bottom so the hero fills the height of the profile card */
+  .hero-foot {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    margin-top: auto;
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--border);
+  }
+  .blurb { margin-bottom: var(--space-5); }
   .badge {
     font-size: 12.5px;
     font-weight: 600;
@@ -170,7 +186,7 @@ const socials = [
     background: var(--accent-soft);
     color: var(--text);
   }
-  .cta { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-4); }
+  .cta { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-left: auto; }
 
   .profile { padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-3); }
   .portrait { width: 100%; aspect-ratio: 1; object-fit: cover; object-position: top; border-radius: var(--radius-md); }
@@ -186,18 +202,19 @@ const socials = [
     transition: border-color 0.2s, color 0.2s;
   }
   .socials a:hover { border-color: var(--accent); color: var(--accent); }
-  .email {
-    display: block;
-    padding: 7px 4px;
-    font-size: 12px;
-    font-weight: 500;
-    text-align: center;
-    color: var(--text);
-    text-decoration: none;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
+  .info { margin: 0; padding-top: var(--space-3); border-top: 1px solid var(--border); font-size: 13px; }
+  .info dt {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
   }
-  .email:hover { border-color: var(--accent); color: var(--accent); }
+  .info dt::after { content: ':'; }
+  .info dd { margin: 2px 0 var(--space-2); color: var(--text); }
+  .info dd:last-child { margin-bottom: 0; }
+  .info a { color: var(--text); text-decoration: none; font-weight: 500; }
+  .info a:hover { color: var(--accent); }
 
   .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); }
 
