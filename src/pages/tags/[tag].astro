@@ -1,0 +1,48 @@
+---
+import type { GetStaticPaths } from 'astro';
+import PageLayout from '../../layouts/PageLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getTags } from '../../lib/tags';
+
+export const getStaticPaths = (async () => {
+  const tags = await getTags();
+  return tags.map((t) => ({ params: { tag: t.slug }, props: { tag: t } }));
+}) satisfies GetStaticPaths;
+
+type Tag = Awaited<ReturnType<typeof getTags>>[number];
+const { tag } = Astro.props as { tag: Tag };
+---
+<PageLayout title={`#${tag.name} — Nguyen Le Hoang Trung`} description={`Projects and posts tagged ${tag.name}.`}>
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a><span aria-hidden="true">›</span><a href="/tags">Tags</a><span aria-hidden="true">›</span><span aria-current="page">{tag.name}</span>
+  </nav>
+  <h1 class="page-title"><span class="hash">#</span> {tag.name}</h1>
+  <p class="lede">{tag.count} {tag.count === 1 ? 'entry' : 'entries'}</p>
+
+  {tag.projects.length > 0 && (
+    <section>
+      <h2 class="eyebrow">projects</h2>
+      <div class="grid">{tag.projects.map((p) => <ProjectCard project={p} />)}</div>
+    </section>
+  )}
+
+  {tag.posts.length > 0 && (
+    <section>
+      <h2 class="eyebrow">posts</h2>
+      <div class="list">{tag.posts.map((p) => <PostCard post={p} />)}</div>
+    </section>
+  )}
+</PageLayout>
+
+<style>
+  .crumbs { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-5); font-size: 13px; color: var(--text-muted); }
+  .crumbs a { color: var(--text-muted); text-decoration: none; }
+  .crumbs a:hover { color: var(--accent); }
+  .crumbs [aria-current] { color: var(--text); }
+  .hash { color: var(--accent); }
+  section { margin-bottom: var(--space-7); }
+  .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); }
+  .list { display: grid; gap: var(--space-4); }
+  @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+</style>

@@ -4,6 +4,7 @@ import type { CollectionEntry } from 'astro:content';
 import type { GetStaticPaths } from 'astro';
 import { Image } from 'astro:assets';
 import PageLayout from '../../layouts/PageLayout.astro';
+import { tagSlug } from '../../lib/tags';
 import '../../styles/prose.css';
 
 interface Props { post: CollectionEntry<'posts'>; }
@@ -29,7 +30,7 @@ const formatted = date.toLocaleDateString('en-US', {
   <header class="head">
     <h1>{title}</h1>
     <time datetime={date.toISOString()}>{formatted}</time>
-    <div class="tags">{tags.map((tag) => <span class="tag">{tag}</span>)}</div>
+    <ul class="tags">{tags.map((tag) => <li><a class="tag" href={`/tags/${tagSlug(tag)}`}>{tag}</a></li>)}</ul>
   </header>
 
   {cover && <Image src={cover} alt={coverAlt ?? title} class="cover" />}
@@ -42,14 +43,6 @@ const formatted = date.toLocaleDateString('en-US', {
   .head { margin: var(--space-4) 0 var(--space-6); }
   h1 { margin: 0; font-size: clamp(28px, 5vw, 38px); font-weight: 800; letter-spacing: -0.03em; }
   time { display: block; margin-top: var(--space-2); font-size: 14px; color: var(--text-muted); }
-  .tags { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-3); }
-  .tag {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--accent);
-    background: var(--accent-soft);
-    border-radius: var(--radius-pill);
-    padding: 3px 9px;
-  }
+  .tags { margin-top: var(--space-3); }
   .cover { border-radius: var(--radius-md); margin-bottom: var(--space-6); }
 </style>

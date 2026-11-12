@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { Image } from 'astro:assets';
+import { tagSlug } from '../lib/tags';
 
 interface Props { project: CollectionEntry<'projects'>; }
 const { project } = Astro.props;
@@ -12,7 +13,7 @@ const { title, role, period, summary, tags, cover, coverAlt } = project.data;
     <h3 class="title-h"><a href={`/work/${project.id}`} class="title">{title}</a></h3>
     <p class="meta">{period} · {role}</p>
     <p class="summary">{summary}</p>
-    <ul class="tags">{tags.map((tag) => <li class="tag">{tag}</li>)}</ul>
+    <ul class="tags">{tags.map((tag) => <li><a class="tag" href={`/tags/${tagSlug(tag)}`}>{tag}</a></li>)}</ul>
   </div>
 </article>
 
@@ -34,4 +35,6 @@ const { title, role, period, summary, tags, cover, coverAlt } = project.data;
   .project:hover .title { color: var(--accent); }
   .meta { margin: 2px 0 var(--space-3); font-size: 12.5px; color: var(--text-muted); font-family: var(--font-mono); }
   .summary { margin: 0 0 var(--space-4); font-size: 14.5px; color: var(--text-muted); flex: 1; }
+  /* tag links sit above the card-wide title link */
+  .tags { position: relative; z-index: 1; }
 </style>

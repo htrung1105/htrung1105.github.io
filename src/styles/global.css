@@ -189,6 +189,15 @@ a.card:hover,
   content: '# ';
   color: var(--accent);
 }
+a.tag {
+  display: inline-block;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+a.tag:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
 
 .btn {
   display: inline-flex;
