@@ -35,14 +35,14 @@ const socials = [
   },
 ];
 ---
-<PageLayout title={`${site.name} — ${site.role}`} description={site.blurb}>
+<PageLayout title="Trung Nguyen - Portfolio" description={site.blurb}>
   <div class="bento">
     <section class="card hero" aria-labelledby="hi">
       <h1 id="hi">{site.name}</h1>
       <p class="role">{site.role} · HCMC · Multimodal Agentic RAG &amp; LLM &amp; AI systems</p>
       <p class="blurb">{site.blurb}</p>
+      <p class="status"><span>Status:</span> {site.status}</p>
       <div class="hero-foot">
-        <span class="badge">{site.badge}</span>
         <div class="cta">
           <a class="btn" href="/resume">View Résumé</a>
           <a class="btn primary" href="/files/resume.pdf" download>Download CV</a>
@@ -64,9 +64,7 @@ const socials = [
         </ul>
         <dl class="info">
           <dt>Email</dt>
-          <dd><a href={`mailto:${site.email}`}>{site.email.split('@')[0]}<wbr />@{site.email.split('@')[1]}</a></dd>
-          <dt>Location</dt>
-          <dd>{site.location}</dd>
+          <dd><a href={`mailto:${site.email}`}>{site.email}</a></dd>
         </dl>
       </div>
     </aside>
@@ -177,15 +175,8 @@ const socials = [
     padding-top: var(--space-5);
     border-top: 1px solid var(--border);
   }
-  .blurb { margin-bottom: var(--space-5); }
-  .badge {
-    font-size: 12.5px;
-    font-weight: 600;
-    padding: 5px 12px;
-    border-radius: var(--radius-pill);
-    background: var(--accent-soft);
-    color: var(--text);
-  }
+  .status { margin: var(--space-4) 0 var(--space-5); font-weight: 700; color: var(--text); }
+  .status span { color: var(--accent); }
   .cta { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-left: auto; }
 
   .profile { padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-3); }
@@ -213,7 +204,8 @@ const socials = [
   .info dt::after { content: ':'; }
   .info dd { margin: 2px 0 var(--space-2); color: var(--text); }
   .info dd:last-child { margin-bottom: 0; }
-  .info a { color: var(--text); text-decoration: none; font-weight: 500; }
+  /* keep the address on one line; 12px fits the 260px card */
+  .info a { color: var(--text); text-decoration: none; font-weight: 500; font-size: 12px; white-space: nowrap; }
   .info a:hover { color: var(--accent); }
 
   .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); }
@@ -260,9 +252,11 @@ const socials = [
   @media (max-width: 760px) {
     .bento { grid-template-columns: 1fr; }
     .hero { padding: var(--space-5); }
-    .profile { flex-direction: row; align-items: center; }
-    .portrait { width: 96px; flex: none; }
-    .contact-info { flex: 1; }
+    /* portrait + icons on one row, email full width below so it never wraps */
+    .profile { display: grid; grid-template-columns: 96px 1fr; align-items: center; }
+    .portrait { width: 96px; }
+    .contact-info { display: contents; }
+    .info { grid-column: 1 / -1; }
     .grid, .two { grid-template-columns: 1fr; }
     .timeline li { flex-direction: column; gap: 0; }
   }
