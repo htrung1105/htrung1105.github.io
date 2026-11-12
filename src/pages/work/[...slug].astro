@@ -4,6 +4,7 @@ import type { CollectionEntry } from 'astro:content';
 import type { GetStaticPaths } from 'astro';
 import { Image } from 'astro:assets';
 import PageLayout from '../../layouts/PageLayout.astro';
+import { tagSlug } from '../../lib/tags';
 import '../../styles/prose.css';
 
 interface Props { project: CollectionEntry<'projects'>; }
@@ -29,7 +30,7 @@ const { title, role, period, summary, repo, demo, paper, tags, metrics, cover, c
     <h1>{title}</h1>
     <p class="summary">{summary}</p>
     <p class="meta">{period} · {role}</p>
-    <ul class="tags">{tags.map((tag) => <li class="tag">{tag}</li>)}</ul>
+    <ul class="tags">{tags.map((tag) => <li><a class="tag" href={`/tags/${tagSlug(tag)}`}>{tag}</a></li>)}</ul>
     <div class="links">
       {repo && <a class="btn" href={repo}>View repository</a>}
       {paper && <a class="btn" href={paper}>Read the paper</a>}

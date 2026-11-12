@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { postCategoryLabels } from '../config/site';
+import { tagSlug } from '../lib/tags';
 
 interface Props { post: CollectionEntry<'posts'>; }
 const { post } = Astro.props;
@@ -19,7 +20,7 @@ const formatted = date.toLocaleDateString('en-US', {
   </div>
   <h2 class="title-h"><a class="title" href={`/blog/${post.id}`}>{title}</a></h2>
   <p class="excerpt">{excerpt}</p>
-  <div class="tags">{tags.map((tag) => <span class="tag">{tag}</span>)}</div>
+  <ul class="tags">{tags.map((tag) => <li><a class="tag" href={`/tags/${tagSlug(tag)}`}>{tag}</a></li>)}</ul>
 </article>
 
 <style>
@@ -44,6 +45,5 @@ const formatted = date.toLocaleDateString('en-US', {
   }
   .title:hover { color: var(--accent); }
   .excerpt { margin: var(--space-2) 0 0; color: var(--text-muted); }
-  .tags { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-3); }
-  .tag { font-size: 11px; font-weight: 600; color: var(--text-muted); }
+  .tags { margin-top: var(--space-3); }
 </style>
