@@ -1,30 +1,20 @@
 ---
-import { Image } from 'astro:assets';
 import ThemeToggle from './ThemeToggle.astro';
-import portrait from '../assets/portrait.jpg';
 
 const links = [
+  { href: '/', label: 'Dashboard' },
   { href: '/work', label: 'Projects' },
   { href: '/publications', label: 'Publications' },
   { href: '/resume', label: 'CV' },
   { href: '/blog', label: 'Blog' },
-];
-const more = [
   { href: '/certificates', label: 'Certificates' },
-  { href: '/tags', label: 'Tags' },
-  { href: '/contact', label: 'Contact' },
 ];
 
 const path = Astro.url.pathname;
-const isActive = (href: string) => path.startsWith(href);
-const moreActive = more.some((m) => isActive(m.href));
+const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
 ---
 <header>
   <div class="container bar">
-    <a class="brand" href="/" aria-label="Home">
-      <Image src={portrait} alt="" width={56} height={56} class="avatar" loading="eager" />
-      <span>htrung1105</span>
-    </a>
     <nav aria-label="Main">
       <ul>
         {links.map((link) => (
@@ -34,18 +24,6 @@ const moreActive = more.some((m) => isActive(m.href));
             </a>
           </li>
         ))}
-        <li>
-          <details class="more">
-            <summary class:list={{ on: moreActive }}>More <span aria-hidden="true">▾</span></summary>
-            <ul class="menu">
-              {more.map((link) => (
-                <li>
-                  <a href={link.href} class={isActive(link.href) ? 'on' : ''} aria-current={isActive(link.href) ? 'page' : undefined}>{link.label}</a>
-                </li>
-              ))}
-            </ul>
-          </details>
-        </li>
       </ul>
     </nav>
     <ThemeToggle />
@@ -68,29 +46,9 @@ const moreActive = more.some((m) => isActive(m.href));
     gap: var(--space-3);
     height: 58px;
   }
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    font-weight: 700;
-    font-size: 15px;
-    letter-spacing: -0.01em;
-    text-decoration: none;
-    color: var(--text);
-    flex: none;
-  }
-  .avatar {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: top;
-  }
-  /* no overflow clipping here: the More menu drops outside the nav box */
-  nav { flex: 1; }
+  nav { flex: 1; min-width: 0; overflow-x: auto; scrollbar-width: none; }
   ul {
     display: flex;
-    justify-content: flex-end;
     gap: 2px;
     list-style: none;
     margin: 0;
@@ -109,51 +67,9 @@ const moreActive = more.some((m) => isActive(m.href));
   ul a:hover { color: var(--text); }
   ul a.on { color: var(--text); background: var(--accent-soft); }
 
-  .more { position: relative; }
-  summary {
-    list-style: none;
-    cursor: pointer;
-    padding: 6px 10px;
-    font-size: 13.5px;
-    font-weight: 500;
-    color: var(--text-muted);
-    border-radius: var(--radius-sm);
-    white-space: nowrap;
-  }
-  summary::-webkit-details-marker { display: none; }
-  summary:hover, .more[open] summary { color: var(--text); }
-  summary.on { color: var(--text); background: var(--accent-soft); }
-  .menu {
-    position: absolute;
-    right: 0;
-    top: calc(100% + 6px);
-    flex-direction: column;
-    min-width: 150px;
-    padding: var(--space-1);
-    background: var(--bg);
-    border: 1px solid var(--border-strong);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow);
-  }
-
   @media (max-width: 640px) {
-    .bar { flex-wrap: wrap; height: auto; padding-top: var(--space-2); padding-bottom: var(--space-1); justify-content: space-between; }
-    nav { order: 3; flex-basis: 100%; }
-    ul { justify-content: space-between; }
-    ul a, summary { padding: 6px 8px; font-size: 13px; }
+    .bar { gap: var(--space-2); height: auto; padding-top: var(--space-2); padding-bottom: var(--space-2); }
+    ul { flex-wrap: wrap; }
+    ul a { padding: 5px 7px; font-size: 13px; }
   }
 </style>
-
-<script>
-  // Close the More menu on outside click or Escape.
-  const more = document.querySelector<HTMLDetailsElement>('details.more');
-  document.addEventListener('click', (e) => {
-    if (more?.open && !more.contains(e.target as Node)) more.open = false;
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && more?.open) {
-      more.open = false;
-      more.querySelector('summary')?.focus();
-    }
-  });
-</script>

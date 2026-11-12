@@ -11,7 +11,7 @@ const posts = (await getCollection('posts', ({ data }) => import.meta.env.DEV ||
 
 const categories = [...new Set(posts.map((p) => p.data.category))];
 ---
-<PageLayout title="Blog — Nguyen Le Hoang Trung" description="Project write-ups, paper notes, and career posts on AI and retrieval.">
+<PageLayout title="Blog — Trung Le-Hoang Nguyen" description="Project write-ups, paper notes, and career posts on AI and retrieval.">
   <h1>Blog</h1>
   <p class="lede">Project write-ups, paper notes, and the occasional career post.</p>
 

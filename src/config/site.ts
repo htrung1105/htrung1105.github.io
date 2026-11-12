@@ -1,5 +1,5 @@
 export const site = {
-  name: 'Nguyen Le Hoang Trung',
+  name: 'Trung Le-Hoang Nguyen',
   displayName: 'Hoang Trung',
   role: 'AI Engineer',
   location: 'Ho Chi Minh City, Vietnam',
@@ -9,15 +9,11 @@ export const site = {
   linkedin: 'https://www.linkedin.com/in/trungnlh/',
   linkedinName: 'trungnlh',
   orcid: 'https://orcid.org/0009-0008-0343-2577',
+  facebook: 'https://www.facebook.com/lehoangtrung.nguyen/',
   url: 'https://htrung1105.github.io',
   blurb:
-    'Final-year Artificial Intelligence student at VNU-HCM University of Science, passionate about Information Retrieval and Multimodal AI (NLP + CV). I build RAG/GraphRAG chatbots, multimodal retrieval and document OCR pipelines.',
-  badges: ['B.Sc. AI @ HCMUS', 'SOICT 2025', 'ICPC South 2024'],
-  stats: [
-    { value: '353K+', label: 'legal documents in a Neo4j graph' },
-    { value: '0.952', label: 'Sino-Nom OCR H-mean' },
-    { value: 'Top 12', label: 'of 80+ teams, AI Challenge HCMC 2025' },
-  ],
+    'Final-year Artificial Intelligence student at VNU-HCM University of Science, passionate about Information Retrieval and Multimodal AI (NLP + CV). I have experience in building RAG/GraphRAG chatbots, multimodal retrieval and document OCR pipelines.',
+  badge: 'Undergraduate B.Sc. AI @ HCMUS',
   awards: [
     { title: 'Best Presentation Award', org: 'SOICT 2025', note: 'KPTER: K-Pointer for Temporal Event Retrieval' },
     { title: 'Top 12 / 80+ teams', org: 'AI Challenge HCMC 2025', note: 'Preliminary score 82/88' },

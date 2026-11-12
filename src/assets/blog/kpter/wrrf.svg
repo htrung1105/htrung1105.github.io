@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" font-family="ui-sans-serif,Segoe UI,Arial,sans-serif">
+  <rect width="1200" height="520" fill="#0b1018"/>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#67e8f9"/></marker></defs>
+  <g font-size="17" font-weight="600" fill="#e6edf5" text-anchor="middle"><text x="130" y="56">Embeddings</text><text x="330" y="56">OCR text</text><text x="530" y="56">ASR text</text></g>
+  <g fill="#121a26" stroke="#2a3a50"><rect x="60" y="80" width="140" height="44" rx="8"/><rect x="60" y="134" width="140" height="44" rx="8"/><rect x="60" y="188" width="140" height="44" rx="8"/><rect x="260" y="80" width="140" height="44" rx="8"/><rect x="260" y="134" width="140" height="44" rx="8"/><rect x="260" y="188" width="140" height="44" rx="8"/><rect x="460" y="80" width="140" height="44" rx="8"/><rect x="460" y="134" width="140" height="44" rx="8"/><rect x="460" y="188" width="140" height="44" rx="8"/></g>
+  <g fill="#e6edf5" font-family="ui-monospace,Consolas,monospace" font-size="16"><text x="76" y="108">1 · frame C</text><text x="76" y="162">2 · frame A</text><text x="76" y="216">3 · frame D</text><text x="276" y="108">1 · frame A</text><text x="276" y="162">2 · frame B</text><text x="276" y="216">3 · frame C</text><text x="476" y="108">1 · frame A</text><text x="476" y="162">2 · frame E</text><text x="476" y="216">3 · frame C</text></g>
+  <g stroke="#67e8f9" stroke-width="2" fill="none" marker-end="url(#a)"><path d="M130 236C130 252 640 248 766 250"/><path d="M330 236C330 254 660 256 766 262"/><path d="M530 236C530 256 690 262 766 274"/></g>
+  <rect x="770" y="190" width="380" height="230" rx="12" fill="#0f2430" stroke="#67e8f9"/>
+  <text x="960" y="226" fill="#e6edf5" font-size="18" text-anchor="middle" font-weight="600">Fused ranking</text>
+  <g font-family="ui-monospace,Consolas,monospace" font-size="17" fill="#e6edf5"><text x="800" y="270">1 · frame A</text><text x="800" y="304">2 · frame C</text><text x="800" y="338">3 · …</text></g>
+  <text x="800" y="394" fill="#8c99ab" font-size="15">frames found by several streams rise</text>
+  <rect x="60" y="280" width="660" height="150" rx="12" fill="#121a26" stroke="#2a3a50"/>
+  <text x="80" y="316" fill="#8c99ab" font-size="15">Weighted Reciprocal Rank Fusion, general form:</text>
+  <text x="80" y="360" fill="#67e8f9" font-size="24" font-family="ui-monospace,Consolas,monospace">score(d) = Σ wᵢ / (k + rankᵢ(d))</text>
+  <text x="80" y="396" fill="#8c99ab" font-size="15">wᵢ: how much stream i is trusted · ranks, not raw scores,</text>
+  <text x="80" y="418" fill="#8c99ab" font-size="15">so OCR confidence and cosine similarity never need a shared scale</text>
+  <text x="60" y="490" fill="#8c99ab" font-size="14">Illustrative example only. The weights and k used in KPTER are given in the paper.</text>
+</svg>

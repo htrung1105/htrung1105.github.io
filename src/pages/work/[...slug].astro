@@ -21,7 +21,7 @@ const { project } = Astro.props;
 const { Content } = await render(project);
 const { title, role, period, summary, repo, demo, paper, tags, metrics, cover, coverAlt } = project.data;
 ---
-<PageLayout title={`${title} — Nguyen Le Hoang Trung`} description={summary}>
+<PageLayout title={`${title} — Trung Le-Hoang Nguyen`} description={summary}>
   <nav class="crumbs" aria-label="Breadcrumb">
     <a href="/">Home</a><span aria-hidden="true">›</span><a href="/work">Projects</a><span aria-hidden="true">›</span><span aria-current="page">{title}</span>
   </nav>
